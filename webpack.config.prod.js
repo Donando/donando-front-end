@@ -44,6 +44,9 @@ module.exports = {
         exclude:  path.resolve(__dirname, 'node_modules'),
         loaders: ['react-hot','babel']
       }, {
+        test:/bootstrap-sass[\/\\]assets[\/\\]javascripts[\/\\]/,
+        loader: 'imports?jQuery=jquery'
+      }, {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract(
           'style', // backup loader when not building .css file
