@@ -1,0 +1,49 @@
+{
+  "name": "donando",
+  "version": "0.0.1",
+  "description": "Aggregator platform for demands of NGOs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --hot --inline --progress",
+    "lint": "eslint . --ext .js",
+    "clean": "rm -rf dist",
+    "build": "npm run lint && npm run clean && webpack --define process.env.NODE_ENV='\"production\"' --progress --colors"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-core": "^6.7.7",
+    "babel-eslint": "^6.0.3",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.6.0",
+    "babel-preset-react": "^6.5.0",
+    "babel-preset-stage-2": "^6.5.0",
+    "bootstrap-loader": "^1.0.10",
+    "css-loader": "^0.23.1",
+    "eslint": "^2.8.0",
+    "eslint-plugin-babel": "^3.2.0",
+    "eslint-plugin-react": "^5.0.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.8.5",
+    "node-sass": "^3.5.3",
+    "react-hot-loader": "^1.3.0",
+    "redux-devtools": "^3.2.0",
+    "resolve-url-loader": "^1.4.3",
+    "sass-loader": "^3.2.0",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.0",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "dependencies": {
+    "bootstrap-sass": "^3.3.6",
+    "react": "^15.0.1",
+    "react-dom": "^15.0.1",
+    "react-redux": "^4.4.5",
+    "react-router": "^2.3.0",
+    "redux": "^3.5.2",
+    "redux-thunk": "^2.0.1"
+  }
+}
