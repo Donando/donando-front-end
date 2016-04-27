@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import Demand from './Demand';
+import Demand from './demand';
 
 const DemandList  = ({ demands }) => {
 	let components = demands.map(( t, i ) => {

@@ -21,6 +21,7 @@ module.exports = {
     emitWarning: true,
     failOnError: true
   },
+  devtool: 'inline-source-map',
   plugins: [
     new ExtractTextPlugin('style.css'),
     new webpack.optimize.CommonsChunkPlugin('common.js')

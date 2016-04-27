@@ -3,8 +3,7 @@ import React, { PropTypes } from 'react';
 const Demand = ({title}) => {
 	return (
 		<div className='demand'>
-			<h2>{title}
-			</h2>
+			{title}
 		</div>
 	) 
 }
