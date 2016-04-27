@@ -21,6 +21,9 @@ module.exports = {
     emitWarning: true,
     failOnError: true
   },
+  devServer: {
+    historyApiFallback: true
+  },
   plugins: [
     new ExtractTextPlugin('style.css'),
     new webpack.optimize.CommonsChunkPlugin('common.js')
