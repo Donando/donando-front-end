@@ -7,7 +7,7 @@ export class Main extends Component {
   render() {
     return (
       <div className = 'container'>
-        <Header text = {this.props.child_1} />
+        <Header />
         {this.props.children}
       </div>)
   }
@@ -16,9 +16,5 @@ export class Main extends Component {
 function mapStateToProps(state) {
   return state
 }
-
-Main.propTypes = {
-  child_1: React.PropTypes.string
-};
 
 export default connect(mapStateToProps)(Main)
