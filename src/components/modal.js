@@ -1,11 +1,13 @@
 import React, { PropTypes } from 'react';
-import VisibleDemandList from 'containers/visibleDemandList';
+import DemandListConatiner from 'containers/demandListContainer';
+import NgoContainer from 'containers/ngoContainer';
 import 'styles/modal.scss'
 
 const Modal = ({closeModal, displayModal}) => {
 	return (
 		<div className={ displayModal ? 'show-modal ngo-modal' : 'close-modal'}>
-			<VisibleDemandList />
+			<NgoContainer />
+			<DemandListConatiner />
 			<button onClick={()=> closeModal()}>close this modal</button>
 		</div>
 	) 

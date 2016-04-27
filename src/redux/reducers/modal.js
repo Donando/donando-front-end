@@ -3,7 +3,7 @@ import { createReducer } from 'utils/redux'
 const OPEN_MODAL = 'OPEN_MODAL';
 const CLOSE_MODAL = 'CLOSE_MODAL';
 
-const initialState =  true;
+const initialState =  false;
 
 export function openModal() {
   return {
