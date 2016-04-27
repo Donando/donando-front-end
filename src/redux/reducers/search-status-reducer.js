@@ -21,7 +21,7 @@ export function results_loaded(data) {
 }
 
 export default createReducer(initialState, {
-  [LOADING_RESULTS]: (state) => {
+  [LOADING_RESULTS]: () => {
     // Fix me: change this into cost
     return 'loading';
   },

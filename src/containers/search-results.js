@@ -31,7 +31,10 @@ export class SearchResults extends Component {
     )
   }
 }
-
+SearchResults.propTypes = {
+  demands: React.PropTypes.Array,
+  searchStatus: React.PropTypes.string
+}
 function mapStateToProps(state) {
   return state;
 }

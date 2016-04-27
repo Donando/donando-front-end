@@ -8,7 +8,6 @@ import { update_demands_list } from './demands-list-reducer'
 
 const CHANGE_FILTER_LOCATION = 'change_filter_location';
 const CHANGE_FILTER_TEXT = 'change_filter_text';
-const UPDATE_SEARCH_RESULTS = 'update_search_results';
 
 
 const initialState = {
@@ -17,6 +16,7 @@ const initialState = {
 }
 
 export function change_filter_location(data) {
+  console.log('data from FE ', data);
   return function(dispatch) {
     dispatch(loading_results());
     fetch(API.ROOT_PATH + API.END_POINTS.SEARCH_DEMANDS, {
