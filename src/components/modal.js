@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import VisibleDemandList from 'containers/visibleDemandList';
 import 'styles/modal.scss'
 
@@ -10,5 +10,10 @@ const Modal = ({closeModal, displayModal}) => {
 		</div>
 	) 
 }
+
+Modal.propTypes = {
+	closeModal: PropTypes.func.isRequired,
+  displayModal: PropTypes.bool.isRequired
+};
 
 export default Modal;
