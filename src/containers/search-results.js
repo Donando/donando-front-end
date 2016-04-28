@@ -9,29 +9,37 @@ import 'styles/search-results.scss'
 export class SearchResults extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
-      isOpen: false,
-      test: null
-    }
+    console.log(this.props)
+    this.state = { isOpen: false }
+    this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+
   }
+
   componentWillMount() {
     this.props.dispatch(change_filter_location(this.props.params.name));
   }
+
   openModal() {
-    this.setState({isOpen: true});
+    this.setState({ isOpen: true });
   }
-  closeModal(){
-    console.log(this, 'this')
-    this.setState({isOpen: false, test: "something"});
+
+  closeModal() {
+    //MODAL WONT CLOSE!!!!
+    debugger
+    console.log(this.state.isOpen, 'this')
+    console.log(this, 'true')
+    this.setState({ isOpen: false });
+    console.log(this.state, 'false')
   }
+
   render() {
     const {
       demands
     } = this.props;
-    var modalContainer = this.state.isOpen ? <Modal closeModal={()=> this.closeModal()} demands={demands}/> : '';
+    var modalContainer = this.state.isOpen ? <Modal closeModal={this.closeModal} demands={demands}/> : '';
     return (
-      <div onClick={()=> this.openModal()}>
+      <div onClick={this.openModal}>
         <p>You search query: {this.props.params.name}</p>
         <p>Current value of API call : {this.props.searchStatus}</p>
         {

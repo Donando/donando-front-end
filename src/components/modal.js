@@ -5,8 +5,11 @@ import 'styles/modal.scss'
 const Modal = ({closeModal, demands}) => {
 	return (
 		<div className='ngo-modal'>
+			<button className='close-btn pull-right'
+							value='X'
+							type='text'
+							onClick={()=> closeModal()}>X</button>
 			<DemandList demands={demands} />
-			<button onClick={()=> closeModal()}>close this modal</button>
 		</div>
 	) 
 }
