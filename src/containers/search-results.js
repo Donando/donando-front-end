@@ -25,7 +25,6 @@ export class SearchResults extends Component {
     console.log(this, 'this')
     this.setState({isOpen: false, test: "something"});
   }
-
   render() {
     const {
       demands
