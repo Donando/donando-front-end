@@ -4,7 +4,9 @@ import { closeModal } from 'redux/reducers/modal';
 
 function mapStateToProps(state) {
   return {
-		displayModal: state.modal
+		displayModal: state.modal.displayModal,
+		ngo: state.modal.ngo,
+		demands: state.modal.demands
   };
 }
 

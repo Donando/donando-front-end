@@ -26,12 +26,7 @@ const Ngo = ({ngo}) => {
 }
 
 Ngo.propTypes = {
-  name: PropTypes.string.isRequired,
-  address: PropTypes.string.isRequired,
-  hours: PropTypes.string.isRequired,
-  direction: PropTypes.string.isRequired,
-  phone: PropTypes.string.isRequired,
-  website: PropTypes.string.isRequired
+  ngo: PropTypes.object.isRequired
 };
 
 export default Ngo;
