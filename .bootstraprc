@@ -52,5 +52,7 @@
     utilities: true,
     responsive-utilities: true
   },
-  "scripts": false
+  "scripts": {
+    "collapse": true
+  }
 }
