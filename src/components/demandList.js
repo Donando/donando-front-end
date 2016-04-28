@@ -2,9 +2,9 @@ import React, { PropTypes } from 'react';
 import Demand from './demand';
 
 const DemandList  = ({ demands }) => {
-	let components = demands.map(( t, i ) => {
-											return <Demand key={i} title={t.title}/> 
-											})
+	let components = demands && demands.map(( d, i ) => {
+												return <Demand key={i} demand={d}/> 
+												})
 	return (
 			<div>
 				{components}

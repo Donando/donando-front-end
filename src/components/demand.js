@@ -1,15 +1,19 @@
 import React, { PropTypes } from 'react';
+import Ngo from 'components/ngo';
 
-const Demand = ({title}) => {
+const Demand = ({demand}) => {
 	return (
 		<div className='demand'>
-			{title}
+			{demand.data}
+			{demand.created_at}
+			{demand.id}
+			<Ngo ngo={demand.ngo}/>
 		</div>
 	) 
 }
 
 Demand.propTypes = {
-  title: PropTypes.string.isRequired
+  demand: PropTypes.object.isRequired
 };
 
 export default Demand;

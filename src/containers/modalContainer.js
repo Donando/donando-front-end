@@ -1,18 +1,27 @@
-import { connect } from 'react-redux';
-import Modal from 'components/modal';
-import { closeModal } from 'redux/reducers/modal';
+// import React, { PropTypes } from 'react';
+// import { connect } from 'react-redux';
+// import Modal from 'components/modal';
 
-function mapStateToProps(state) {
-  return {
-		displayModal: state.modal.displayModal,
-		ngo: state.modal.ngo,
-		demands: state.modal.demands
-  };
-}
+// const ModalContainer = ({closeModal, demands}) => {
+//   return (
+//     <div>
+//       <Modal demands={demands}
+//              closeModal={()=> closeModal()}/>
+//     </div>
+//   ) 
+// }
 
-const ModalContainer = connect(
-  mapStateToProps, 
-  {closeModal}
-)(Modal)
+// function mapStateToProps(state) {
+//   return {
+// 		demands: state.demands
+//   };
+// }
 
-export default ModalContainer;
+// ModalContainer.propTypes = {
+//   demands: PropTypes.array.isRequired
+// };
+
+// export default ModalContainer
+// // connect(
+// //   mapStateToProps 
+// // )(ModalContainer);
