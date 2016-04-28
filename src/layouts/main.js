@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import Header from './header'
+import TESTMap from './../components/TESTMap'
 
 export class Main extends Component {
   render() {
@@ -9,6 +10,7 @@ export class Main extends Component {
       <div className = 'container'>
         <Header />
         {this.props.children}
+        <TESTMap/>
       </div>)
   }
 }
