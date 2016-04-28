@@ -9,7 +9,6 @@ import 'styles/search-results.scss'
 export class SearchResults extends Component {
   constructor(props) {
     super(props);
-    console.log(this.props)
     this.state = { isOpen: false }
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -26,7 +25,6 @@ export class SearchResults extends Component {
 
   closeModal() {
     //MODAL WONT CLOSE!!!!
-    debugger
     console.log(this.state.isOpen, 'this')
     console.log(this, 'true')
     this.setState({ isOpen: false });
