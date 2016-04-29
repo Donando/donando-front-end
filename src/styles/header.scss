@@ -1,0 +1,30 @@
+.header {
+  background: #333;
+  padding:  1.25rem 0.312rem;
+  color: #fff;
+  .navbar-default {
+    background: #333;
+    border: none;
+    border-radius: 0;
+    .navbar-brand {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.5rem;
+    }
+    .navbar-nav {
+      li {
+      a {
+          &:hover {
+          color: #fff;
+          }
+        }
+      }
+    }
+
+    .menu-list {
+      @media screen and (min-width: 767px) {
+        float: right;
+      }
+    }
+  }
+}
