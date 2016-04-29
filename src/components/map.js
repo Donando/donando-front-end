@@ -20,10 +20,15 @@ export default class Map extends Component {
     this.updateMarkers = this.updateMarkers.bind(this);
     this.handleMarkerClick = this.handleMarkerClick.bind(this);
   }
-  handleMarkerClick(marker) {
-    let infowindow = new google.maps.InfoWindow({content: '<h3 class="info-window">Hello World</h3>'});
+  handleMarkerClick(marker, item) {
+    // Fix me: Need a better logic here
+    let infowindow = new google.maps.InfoWindow({content: '<h3>'+ item.name +'</h3>' +
+      '<p>'+ item.phone+'</p>' +
+      '<a href=javascript:void(0) class="info-window">Read More</a>'
+    });
     infowindow.open(this.state.map, marker);
-    this.openModal()
+    // Fix me: Need a better logic here
+    this.openModal();
   }
   updateMarkers(markerArray) {
     let marker;
