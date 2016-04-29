@@ -18,6 +18,6 @@ app.get('/style.css', function (req, res) {
   res.sendFile(path.join(__dirname + '/dist/style.css'));
 });
 
-app.listen(3000, function () {
+app.listen(process.env.PORT || 3000, function () {
   console.log('App listening on port 3000!');
 });
