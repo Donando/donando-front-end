@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router'
 
 import 'styles/header.scss'
 
@@ -16,7 +17,7 @@ export class Header extends Component {
                 <span className='icon-bar'></span>
                 <span className='icon-bar'></span>
               </button>
-              <a className='navbar-brand' href='#'>Donando</a>
+              <Link to = '/' className = 'navbar-brand'>Donando</Link>
             </div>
             {
               /*
