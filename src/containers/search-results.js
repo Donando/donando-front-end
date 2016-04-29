@@ -53,7 +53,6 @@ export class SearchResults extends Component {
     return (
       <div>
         <Map markers={markerObjects} openModal={this.openModal}/>
-        <p>Current value of API call : {this.props.searchStatus}</p>
         {
           searchResult
         }
