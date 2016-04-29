@@ -63,6 +63,7 @@ Following are the pending items
 
  - **Style** - Add CSS based on the final design
  - **Results page** - Results page should contain proper information and structure
+ - **Pagination** - Add pagination for results
  - **Error Messages** - Proper error messages for no results from API, user not entering madatory details..etc
  - **Responsiveness** - Make the website work in mobile browsers
  - **Testing** - Add Unit test cases
