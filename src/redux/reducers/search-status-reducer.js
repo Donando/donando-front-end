@@ -5,9 +5,17 @@ const RESULTS_LOADED = 'loading_results';
 
 const initialState = 'loaded';
 
+// Helper function to return the current loading status
+function getLoadingStatus(state, status) {
+  return (status ? status.data: state);
+}
+
 export function loading_results() {
   return {
-    type: LOADING_RESULTS
+    type: LOADING_RESULTS,
+    payload: {
+      data: 'loading'
+    }
   }
 }
 
@@ -21,11 +29,6 @@ export function results_loaded(data) {
 }
 
 export default createReducer(initialState, {
-  [LOADING_RESULTS]: () => {
-    // Fix me: change this into cost
-    return 'loading';
-  },
-  [RESULTS_LOADED]: (state, status) => {
-    return status ? status.data: state;
-  }
+  [LOADING_RESULTS]: getLoadingStatus,
+  [RESULTS_LOADED]: getLoadingStatus
 });

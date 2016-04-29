@@ -15,10 +15,10 @@ const initialState = {
   text: ''
 }
 
-export function change_filter_location(data) {
-  console.log('data from FE ', data);
+export function load_location_data(data) {
   return function(dispatch) {
     dispatch(loading_results());
+    dispatch(change_filter_location(data));
     fetch(API.ROOT_PATH + API.END_POINTS.SEARCH_DEMANDS, {
       method: 'GET'
     })
@@ -32,6 +32,15 @@ export function change_filter_location(data) {
         console.log('some error happened in fetch. ', err);
         dispatch(results_loaded('failed'));
       });
+  }
+}
+
+export function change_filter_location(data) {
+  return {
+    type: CHANGE_FILTER_LOCATION,
+    payload: {
+      data
+    }
   }
 }
 
