@@ -40,7 +40,7 @@ export class SearchResults extends Component {
     let searchResult = this.props.demands && this.props.demands.map((item, index) => {
       markerObjects.push(item.ngo);
       return (
-        <div className='search-result' key={index}>
+        <div className='search-result' key={index} onClick={this.openModal}>
           <p>{item.data}</p>
           <p>{item.ngo.name}</p>
           <p>{item.ngo.phone}</p>
@@ -51,9 +51,9 @@ export class SearchResults extends Component {
     });
 
     return (
-      <div onClick={this.openModal}>
+      <div>
         <p>You search query: {this.props.params.name}</p>
-        <Map markers = {markerObjects} />
+        <Map markers={markerObjects} openModal={this.openModal}/>
         <p>Current value of API call : {this.props.searchStatus}</p>
         {
           searchResult
