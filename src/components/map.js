@@ -1,8 +1,10 @@
 // Library
 import React, { Component } from 'react'
 import $ from 'jquery'
+
 // Styles
 import 'styles/map.scss'
+
 // Constants
 // Inital lat long is Berlin
 const INITIAL_LATITUDE = 52.52;
@@ -19,8 +21,9 @@ export default class Map extends Component {
     this.handleMarkerClick = this.handleMarkerClick.bind(this);
   }
   handleMarkerClick(marker) {
-    let infowindow = new google.maps.InfoWindow({content: '<h3>Hello World</h3>'});
+    let infowindow = new google.maps.InfoWindow({content: '<h3 class="info-window">Hello World</h3>'});
     infowindow.open(this.state.map, marker);
+    this.openModal()
   }
   updateMarkers(markerArray) {
     let marker;
@@ -34,6 +37,11 @@ export default class Map extends Component {
       });
       marker.addListener('click', () => {this.handleMarkerClick(marker, item)});
     });
+  }
+  openModal() {
+    $( document ).delegate('.info-window', 'click', function(){
+      this.props.openModal()
+    }.bind(this));
   }
   componentDidMount() {
     let map = new google.maps.Map($('#map').get(0), {
@@ -58,5 +66,6 @@ export default class Map extends Component {
 }
 
 Map.propTypes = {
-    markers: React.PropTypes.array.isRequired
+    markers: React.PropTypes.array.isRequired,
+    openModal: React.PropTypes.func
 }
