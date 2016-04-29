@@ -21,6 +21,10 @@ module.exports = {
     emitWarning: true,
     failOnError: true
   },
+  devServer: {
+    historyApiFallback: true
+  },
+  devtool: 'inline-source-map',
   plugins: [
     new ExtractTextPlugin('style.css'),
     new webpack.optimize.CommonsChunkPlugin('common.js')

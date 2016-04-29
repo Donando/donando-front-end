@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-//import { action_1 } from 'redux/reducers/child-reducer'
-
 import 'styles/header.scss'
 
 export class Header extends Component {
@@ -20,6 +18,11 @@ export class Header extends Component {
               </button>
               <a className='navbar-brand' href='#'>Donando</a>
             </div>
+            {
+              /*
+                Fix me: Have proper menus
+              */
+            }
             <div className='collapse navbar-collapse clearfix' id='main-menu'>
               <div className='menu-list'>
                 <ul className='nav navbar-nav'>
@@ -30,10 +33,6 @@ export class Header extends Component {
             </div>
           </div>
         </nav>
-        {/*
-          {this.props.text}
-          <button onClick = {() => (this.props.dispatch(action_1({text: 'This is from UI'})))}>Click to dispatch action</button>
-        */}
       </header>
     )
   }
@@ -42,9 +41,5 @@ export class Header extends Component {
 function mapStateToProps(state) {
   return state;
 }
-
-Header.propTypes = {
-  text: React.PropTypes.string
-};
 
 export default connect(mapStateToProps)(Header)

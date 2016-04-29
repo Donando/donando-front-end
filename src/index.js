@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
-import { Router, hashHistory } from 'react-router'
+import { Router, browserHistory } from 'react-router'
 
 import store from 'redux/store'
 
@@ -15,6 +15,6 @@ let fullRoutes = routes();
 
 render(
   <Provider store = {store}>
-    <Router history = {hashHistory}>{fullRoutes}</Router>
+    <Router history = {browserHistory}>{fullRoutes}</Router>
   </Provider>
   , appElement);
