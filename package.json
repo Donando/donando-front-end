@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --hot --inline --progress",
+    "start": "webpack-dev-server --hot --inline --progress --config ./webpack.config.dev.js",
     "lint": "eslint . --ext .js",
     "clean": "rm -rf dist",
-    "build": "npm run lint && npm run clean && webpack --define process.env.NODE_ENV='\"production\"' --progress --colors"
+    "build": "npm run lint && npm run clean && webpack --define process.env.NODE_ENV='\"production\"' --progress --colors --config ./webpack.config.prod.js"
   },
   "author": "",
   "license": "ISC",
@@ -27,6 +27,7 @@
     "eslint-plugin-react": "^5.0.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
+    "imports-loader": "^0.6.5",
     "node-sass": "^3.5.3",
     "react-hot-loader": "^1.3.0",
     "redux-devtools": "^3.2.0",
@@ -39,6 +40,7 @@
   },
   "dependencies": {
     "bootstrap-sass": "^3.3.6",
+    "jquery": "^2.2.3",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
     "react-redux": "^4.4.5",

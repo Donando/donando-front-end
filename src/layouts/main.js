@@ -7,18 +7,22 @@ export class Main extends Component {
   render() {
     return (
       <div className = 'container'>
-        <Header text = {this.props.child_1} />
-        {this.props.children}
+        <Header />
+        <div className = 'relative'>
+          <div className={this.props.searchStatus === 'loading'? 'loading-container': 'loading-container hide'}>
+            <p>Loading results....<br/>Please wait</p>
+          </div>
+          {this.props.children}
+        </div>
       </div>)
   }
 }
 
+Main.propTypes = {
+  searchStatus: React.PropTypes.string.isRequired
+}
 function mapStateToProps(state) {
   return state
 }
-
-Main.propTypes = {
-  child_1: React.PropTypes.string
-};
 
 export default connect(mapStateToProps)(Main)
