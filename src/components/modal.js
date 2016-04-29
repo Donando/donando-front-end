@@ -1,22 +1,22 @@
 import React, { PropTypes } from 'react';
 import DemandList from 'components/demandList';
-import Ngo from 'components/ngo';
 import 'styles/modal.scss'
 
-const Modal = ({closeModal, displayModal, ngo, demands}) => {
+const Modal = ({closeModal, demands}) => {
 	return (
-		<div className={ displayModal ? 'show-modal ngo-modal' : 'close-modal'}>
-			<Ngo ngo={ngo}/>
+		<div className='ngo-modal'>
+			<button className='close-btn pull-right'
+							value='X'
+							type='text'
+							onClick={()=> closeModal()}>X</button>
 			<DemandList demands={demands} />
-			<button onClick={()=> closeModal()}>close this modal</button>
 		</div>
 	) 
 }
 
-
 Modal.propTypes = {
 	closeModal: PropTypes.func.isRequired,
-  displayModal: PropTypes.bool.isRequired
+  demands: PropTypes.array.isRequired
 };
 
 export default Modal;

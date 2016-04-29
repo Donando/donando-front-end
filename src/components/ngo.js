@@ -10,16 +10,10 @@ const Ngo = ({ngo}) => {
 				{ngo.address}
 			</div>
 			<div>
-				{ngo.direction}
-			</div>
-			<div>
-				{ngo.hours}
-			</div>
-			<div>
 				{ngo.phone}
 			</div>
 			<div>
-				{ngo.website}
+				{ngo.email}
 			</div>
 		</div>
 	) 
