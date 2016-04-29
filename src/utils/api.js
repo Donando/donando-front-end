@@ -1,6 +1,11 @@
 export const API = {
   ROOT_PATH: 'https://fathomless-ridge-60760.herokuapp.com/',
   END_POINTS: {
-    SEARCH_DEMANDS: 'demands/'
+    GET_DEMANDS: 'demands/',
+    SEARCH_DEMANDS: 'demands/search'
+  },
+  QUERY_PARAMS: {
+    ADDRESS_SEARCH: 'address',
+    ITEM_SEARCH: 'filter'
   }
 };

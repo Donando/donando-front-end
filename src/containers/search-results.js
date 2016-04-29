@@ -1,11 +1,15 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import Modal from './../components/modal';
+// Library
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
-import { load_location_data } from 'redux/reducers/filter-reducer'
-
+// User Components
+import Modal from 'components/modal'
 import Map from 'components/map'
 
+// Actions
+import { load_data } from 'redux/reducers/filter-reducer'
+
+// Styles
 import 'styles/search-results.scss'
 
 export class SearchResults extends Component {
@@ -14,11 +18,11 @@ export class SearchResults extends Component {
     this.state = { isOpen: false }
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
-
   }
 
   componentWillMount() {
-    this.props.dispatch(load_location_data(this.props.params.name));
+    const { location, item } = this.props.location.query;
+    this.props.dispatch(load_data(location, item));
   }
 
   openModal() {
@@ -37,7 +41,7 @@ export class SearchResults extends Component {
       markerObjects.push(item.ngo);
       return (
         <div className='search-result' key={index} onClick={this.openModal}>
-          <p>{item.data}</p>
+          {item.demands.map((item, index) => ((<p key={index}>{item}</p>)))}
           <p>{item.ngo.name}</p>
           <p>{item.ngo.phone}</p>
           <p>{item.ngo.email}</p>
@@ -48,13 +52,14 @@ export class SearchResults extends Component {
 
     return (
       <div>
-        <p>You search query: {this.props.params.name}</p>
         <Map markers={markerObjects} openModal={this.openModal}/>
         <p>Current value of API call : {this.props.searchStatus}</p>
         {
           searchResult
         }
-        {modalContainer}
+        {
+          modalContainer
+        }
       </div>
     )
   }

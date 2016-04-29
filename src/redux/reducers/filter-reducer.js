@@ -7,19 +7,21 @@ import { loading_results,  results_loaded } from './search-status-reducer'
 import { update_demands_list } from './demands-list-reducer'
 
 const CHANGE_FILTER_LOCATION = 'change_filter_location';
-const CHANGE_FILTER_TEXT = 'change_filter_text';
+const CHANGE_FILTER_ITEM = 'change_filter_item';
 
 
 const initialState = {
   location: '',
-  text: ''
+  item: ''
 }
 
-export function load_location_data(data) {
+export function load_data(location = '', item = '') {
   return function(dispatch) {
     dispatch(loading_results());
-    dispatch(change_filter_location(data));
-    fetch(API.ROOT_PATH + API.END_POINTS.SEARCH_DEMANDS, {
+    dispatch(change_filter_location(location));
+    dispatch(change_filter_item(item));
+    let queryParams = '?' + API.QUERY_PARAMS.ADDRESS_SEARCH + '=' + location + '&' + API.QUERY_PARAMS.ITEM_SEARCH + '=' + item;
+    fetch(API.ROOT_PATH + API.END_POINTS.SEARCH_DEMANDS + queryParams, {
       method: 'GET'
     })
       .then(function(response) {
@@ -44,9 +46,9 @@ export function change_filter_location(data) {
   }
 }
 
-export function change_filter_text(data) {
+export function change_filter_item(data) {
   return {
-    type: CHANGE_FILTER_TEXT,
+    type: CHANGE_FILTER_ITEM,
     payload: {
       data
     }
@@ -55,6 +57,6 @@ export function change_filter_text(data) {
 
 export default createReducer(initialState, {
   [CHANGE_FILTER_LOCATION]: (state, {data}) => ({location: data}),
-  [CHANGE_FILTER_TEXT]: (state, {data}) => ({text: data})
+  [CHANGE_FILTER_ITEM]: (state, {data}) => ({text: data})
 });
 

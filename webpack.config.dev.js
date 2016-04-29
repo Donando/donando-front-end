@@ -42,7 +42,7 @@ module.exports = {
         loaders: ['react-hot','babel']
       }, {
         test:/bootstrap-sass[\/\\]assets[\/\\]javascripts[\/\\]/,
-        loader: 'imports?jQuery=jquery'
+        loader: 'imports?jQuery=jquery,$=jquery'
       }, {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract(

@@ -1,10 +1,16 @@
+// Library
 import React, { Component } from 'react'
-import $ from 'jquery';
+import $ from 'jquery'
+
+// Styles
 import 'styles/map.scss'
 
+// Constants
+// Inital lat long is Berlin
 const INITIAL_LATITUDE = 52.52;
 const INITIAL_LONGITUDE = 13.4050;
 const INITIAL_ZOOM = 8;
+
 export default class Map extends Component {
   constructor() {
     super();
@@ -38,7 +44,7 @@ export default class Map extends Component {
     }.bind(this));
   }
   componentDidMount() {
-    let map = new google.maps.Map(document.getElementById('map'), {
+    let map = new google.maps.Map($('#map').get(0), {
           center: {
             lat: INITIAL_LATITUDE,
             lng: INITIAL_LONGITUDE
