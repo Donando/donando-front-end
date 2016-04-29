@@ -9,9 +9,9 @@ export default () => {
   return (
     <Route path='/' component={MainLayout}>
       <IndexRoute component={LocationSearch}></IndexRoute>
-      <Route path='/search' component={LocationSearch}></Route>
-      <Route path='/search/location' component={LocationSearch}></Route>
-      <Route path='/search/location/:name' component={SearchResults}></Route>
+      <Route path='/search' component={SearchResults}>
+        <Route path='?location=:location&item=:item' component={SearchResults}></Route>
+      </Route>
     </Route>
   )
 }
