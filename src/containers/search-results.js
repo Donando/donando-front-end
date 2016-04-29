@@ -26,11 +26,7 @@ export class SearchResults extends Component {
   }
 
   closeModal() {
-    //MODAL WONT CLOSE!!!!
-    console.log(this.state.isOpen, 'this')
-    console.log(this, 'true')
     this.setState({ isOpen: false });
-    console.log(this.state, 'false')
   }
 
   render() {
