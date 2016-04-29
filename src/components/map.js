@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import $ from 'jquery';
 import 'styles/map.scss'
 
 const INITIAL_LATITUDE = 52.52;
@@ -17,7 +17,7 @@ export default class Map extends Component {
   handleMarkerClick(marker) {
     let infowindow = new google.maps.InfoWindow({content: '<h3 class="info-window">Hello World</h3>'});
     infowindow.open(this.state.map, marker);
-    this.openModal(infowindow)
+    this.openModal()
   }
   updateMarkers(markerArray) {
     let marker;
@@ -32,12 +32,9 @@ export default class Map extends Component {
       marker.addListener('click', () => {this.handleMarkerClick(marker, item)});
     });
   }
-  openModal(infowindow) {
-    google.maps.event.addDomListener(infowindow, 'domready', function() {
-      let e = document.getElementsByClassName('info-window')[0];
-        e.addEventListener('click', function() {
-          this.props.openModal()
-        }.bind(this))
+  openModal() {
+    $( document ).delegate('.info-window', 'click', function(){
+      this.props.openModal()
     }.bind(this));
   }
   componentDidMount() {
