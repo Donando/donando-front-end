@@ -16,7 +16,7 @@ const Modal = ({closeModal, demands}) => {
 
 Modal.propTypes = {
 	closeModal: PropTypes.func.isRequired,
-  demands: PropTypes.array.isRequired
+  	demands: PropTypes.array.isRequired
 };
 
 export default Modal;

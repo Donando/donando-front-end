@@ -50,12 +50,12 @@ export default class Map extends Component {
   }
   componentDidMount() {
     let map = new google.maps.Map($('#map').get(0), {
-          center: {
-            lat: INITIAL_LATITUDE,
-            lng: INITIAL_LONGITUDE
-          },
-          zoom: INITIAL_ZOOM
-        });
+      center: {
+        lat: INITIAL_LATITUDE,
+        lng: INITIAL_LONGITUDE
+      },
+      zoom: INITIAL_ZOOM
+    });
     this.setState({map});
     this.updateMarkers(this.props.markers);
   }
