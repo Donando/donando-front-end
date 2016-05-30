@@ -29,9 +29,9 @@ export function load_data(location = '', item = '') {
       }).then(function(json) {
         dispatch(update_demands_list(json));
         dispatch(results_loaded('loaded'));
-      }).catch(function(err) {
+      }).catch(function() {
         // Fix me: Have proper error logging
-        console.log('some error happened in fetch. ', err);
+        //console.log('some error happened in fetch. ', err);
         dispatch(results_loaded('failed'));
       });
   }
