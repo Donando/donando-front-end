@@ -37,6 +37,7 @@ export class LocationSearch extends Component {
             <p className={this.state.showError? '': 'hidden'}>Please enter location or pincode</p>
           </div>
         </div>
+        {this.props.children}
       </div>
     )
   }
