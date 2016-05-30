@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import Header from './header'
-import LocationSearch from 'containers/location-search'
 
 export class Main extends Component {
   render() {
