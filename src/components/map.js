@@ -26,7 +26,6 @@ export default class Map extends Component {
       '<p>'+ item.phone+'</p>' +
       '<a href=javascript:void(0) class="info-window">Read More</a>'
     });
-    console.log('marker is ', marker);
     infowindow.open(this.state.map, marker);
     // Fix me: Need a better logic here
     this.openModal();
