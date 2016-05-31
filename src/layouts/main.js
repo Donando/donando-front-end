@@ -1,17 +1,20 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import Header from './header'
+import Header from 'containers/header'
+import Notification from 'components/notification'
 
 export class Main extends Component {
   render() {
+    let notification = {message: 'Start your search here'}; //FIX: to be replace with a value from the reducer
     return (
       <div className = 'container'>
-        <Header />
-        <div className = 'relative'>
-          <div className={this.props.searchStatus === 'loading'? 'loading-container': 'loading-container hide'}>
+        <div className = 'main'>
+          <Header />
+          <div className = {this.props.searchStatus === 'loading'? 'loading-container': 'loading-container hide'}>
             <p>Loading results....<br/>Please wait</p>
           </div>
+          <Notification notification = {notification} />
           {this.props.children}
         </div>
       </div>

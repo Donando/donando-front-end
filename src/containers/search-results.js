@@ -37,7 +37,7 @@ export class SearchResults extends Component {
     let searchResult = this.props.demands && this.props.demands.map((item, index) => {
       markerObjects.push(item.ngo);
       return (
-        <div className='search-result' key={index} onClick={this.openModal}>
+        <div className = 'ngo' key={index} onClick={this.openModal}>
           {item.demands.map((item, index) => ((<p key={index}>{item}</p>)))}
           <p>{item.ngo.name}</p>
           <p>{item.ngo.phone}</p>
@@ -48,14 +48,18 @@ export class SearchResults extends Component {
     });
 
     return (
-      <div>
-        <Map markers={markerObjects} openModal={this.openModal}/>
-        {
-          searchResult
-        }
-        {
+      <div className = 'search-results-container'>
+        <div className = 'ngo-container'>
+          {
+            searchResult
+          } 
+        </div>
+        { //FIX: we don't need this modal
           modalContainer
         }
+        <div className = 'map-container'>
+          <Map markers={markerObjects} openModal={this.openModal}/>
+        </div>
       </div>
     )
   }

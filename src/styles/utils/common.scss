@@ -16,6 +16,38 @@ html, body {
   position: fixed;
 }
 
+.hide {
+  display: none;
+}
+
+.show {
+  display: inline-block;
+}
+
+.clearfix {
+  clear: both;
+}
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px; 
+
+  .search-results-container {
+    display: flex;
+
+    .ngo-container, .map-container {
+      width: 50%;
+      height: 600px;
+    }
+
+    .ngo-container {
+      overflow-y: scroll;
+    }
+  } 
+}
+
 .loading-container {
   position: absolute;
   width: 100%;

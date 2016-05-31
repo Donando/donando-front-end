@@ -17,9 +17,7 @@
 
   .main {
     min-height: 650px;
-    &.faded {
-      padding: $gutter*2;
-    }
+    padding: $gutter*2;
   }
 
   .col-narrow {
