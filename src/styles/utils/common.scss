@@ -3,15 +3,19 @@ html, body {
   padding: 0;
   font-size: 1rem;
 }
+
 .relative {
   position: relative
 }
+
 .absolute {
   position: absolute;
 }
+
 .fixed {
   position: fixed;
 }
+
 .loading-container {
   position: absolute;
   width: 100%;

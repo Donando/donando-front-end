@@ -9,9 +9,6 @@ import Map from 'components/map'
 // Actions
 import { load_data } from 'redux/reducers/filter-reducer'
 
-// Styles
-import 'styles/search-results.scss'
-
 export class SearchResults extends Component {
   constructor(props) {
     super(props);

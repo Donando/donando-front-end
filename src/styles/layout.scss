@@ -1,0 +1,30 @@
+@include media($mq-base) {
+  .container {
+    min-width: 320px;
+  }
+}
+
+@include media($mq-Small) {
+  .main {
+    padding: $gutter/2;
+  }
+}
+
+@include media($mq-Large) {
+  .container {
+    max-width: 990px; // override bootstrap
+  }
+
+  .main {
+    min-height: 650px;
+    &.faded {
+      padding: $gutter*2;
+    }
+  }
+
+  .col-narrow {
+    width: 50%;
+    float: left;
+    padding: 0 ($gutter);
+  }
+}

@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react';
 import DemandList from 'components/demandList';
-import 'styles/modal.scss'
 
 const Modal = ({closeModal, demands}) => {
     return (

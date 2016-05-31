@@ -2,9 +2,6 @@
 import React, { Component } from 'react'
 import $ from 'jquery'
 
-// Styles
-import 'styles/map.scss'
-
 // Constants
 // Inital lat long is Berlin
 const INITIAL_LATITUDE = 52.52;

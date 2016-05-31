@@ -3,9 +3,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { browserHistory } from 'react-router'
 
-// Styles
-import 'styles/location-search.scss'
-
 export class LocationSearch extends Component {
   constructor () {
     super();

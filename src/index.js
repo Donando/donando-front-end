@@ -7,8 +7,7 @@ import store from 'redux/store'
 
 import routes from 'routes/routes'
 
-import 'bootstrap-loader'
-import 'styles/utils/common.scss'
+import 'styles/main.scss'
 
 let appElement = document.getElementById('app');
 let fullRoutes = routes();

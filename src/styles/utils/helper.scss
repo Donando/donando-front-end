@@ -1,0 +1,16 @@
+// @media query based wrappers
+@mixin media ($query:'screen', $allowFlatten:false) {
+    @if ($media-queries-support == true) {
+        @if ( $query != 'screen' ) {
+            @media #{$query} { @content; }
+        }
+        @else {
+            @media screen { @content; }
+        }
+    }
+    @else if ( $allowFlatten == true  or  index($media-queries-flatten, $query) != null ) {
+        @media screen { @content; }
+    }
+}
+$media-queries-support: true  !default;
+$media-queries-flatten: "" !default;
