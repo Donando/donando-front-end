@@ -37,14 +37,19 @@ html, body {
 
   .search-results-container {
     display: flex;
+    padding: 10px;
 
     .ngo-container, .map-container {
-      width: 50%;
       height: 600px;
     }
 
     .ngo-container {
+      width: 60%;
       overflow-y: scroll;
+    }
+
+    .map-container {
+      width: 40%;
     }
   } 
 }

@@ -20,7 +20,7 @@ export class Header extends Component {
             <label>Location</label>
             <div className = 'input-group'>
               <input type = 'text' placeholder = 'where is it needed?' />
-              <span className = 'search-icon'><img src = '../static/images/icons/search.svg' /></span>
+              <span className = 'icon search-icon'><img src = '../static/images/icons/search.svg' /></span>
             </div>
           </div>
         </div>  

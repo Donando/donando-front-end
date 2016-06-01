@@ -38,11 +38,27 @@ export class SearchResults extends Component {
       markerObjects.push(item.ngo);
       return (
         <div className = 'ngo' key={index} onClick={this.openModal}>
-          {item.demands.map((item, index) => ((<p key={index}>{item}</p>)))}
-          <p>{item.ngo.name}</p>
-          <p>{item.ngo.phone}</p>
-          <p>{item.ngo.email}</p>
-          <p>{item.ngo.address}</p>
+          {/*
+            item.demands.map((item, index) => ((<p key={index}>{item}</p>)))
+          */}
+          
+          <div className = 'col name'>
+            {item.ngo.name}
+          </div>
+          <div className = 'col address'>
+            {item.ngo.address}
+          </div>
+          <div className = 'col contact'>
+            <div className = {item.ngo.email ? 'email' : 'email hide'}>
+              <span className = 'icon email-icon'><img src = '../static/images/icons/contact_mail.svg' /></span>
+              <span>{item.ngo.email}</span>
+            </div>
+            
+            <div className = {item.ngo.phone ? 'phone' : 'phone hide'}>
+              <span className = 'icon phone-icon'><img src = '../static/images/icons/contact_phone.svg' /></span>
+              <span>{item.ngo.phone}</span>
+            </div>
+          </div>
         </div>
       )
     });
