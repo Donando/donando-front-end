@@ -11,11 +11,17 @@ export class Header extends Component {
         <div className = 'search-inputs'>
           <div className = 'search-input'>
             <label>Donation</label>
-            <input type = 'text' placeholder = 'Donation' />
+            <div className = 'input-group'>
+              <input type = 'text' placeholder = 'what can you give?' />
+              <span className = 'search-icon'><img src = '../static/images/icons/search.svg' /></span>
+            </div>
           </div>
           <div className = 'search-input'>
             <label>Location</label>
-            <input type = 'text' placeholder = 'Location' />
+            <div className = 'input-group'>
+              <input type = 'text' placeholder = 'where is it needed?' />
+              <span className = 'search-icon'><img src = '../static/images/icons/search.svg' /></span>
+            </div>
           </div>
         </div>  
       </header>

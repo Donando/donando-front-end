@@ -1,5 +1,6 @@
 .header {
 	display: flex;
+	background-color: #cab77f;
 }
 
 .logo, .search-inputs {
@@ -8,9 +9,39 @@
 
 .search-inputs {
 	width: 90%;
+
+	.search-input {
+		&:first-child {
+			margin-bottom: 10px;
+		}
+
+		label {
+			font-weight: 500;
+			display: inline-block;
+			margin-right: 10px;
+			font-size: 1.2rem;
+			color: #8e6902;
+		}
+
+		.input-group {
+			display: inline-block;
+			width: 80%;
+			background-color: #e6ddc0;
+			padding: 2px;
+			
+			input[type = 'text'] {
+				height: 100%;
+				width: 90%;
+				font-size: 1.2rem;
+				border: 0px;
+				background-color: transparent;
+			}
+		}
+	}
 }
 
 .logo img {
-	width: 100px;
-	height: 100px;
+	width: 120px;
+	height: 120px;
+	opacity: 0.5;
 }
