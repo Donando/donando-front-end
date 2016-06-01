@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 // User Components
-import Modal from 'components/modal'
 import Map from 'components/map'
 
 // Actions
@@ -12,9 +11,11 @@ import { load_data } from 'redux/reducers/filter-reducer'
 export class SearchResults extends Component {
   constructor(props) {
     super(props);
-    this.state = { isOpen: false }
-    this.openModal = this.openModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
+    this.state = {
+      display: false,
+      index: ''
+    };
+    this.toggleNgo = this.toggleNgo.bind(this);
   }
 
   componentWillMount() {
@@ -22,22 +23,17 @@ export class SearchResults extends Component {
     this.props.dispatch(load_data(location, item));
   }
 
-  openModal() {
-    this.setState({ isOpen: true });
-  }
-
-  closeModal() {
-    this.setState({ isOpen: false });
+  toggleNgo(value) {
+    this.setState({ index: value });
   }
 
   render() {
     const { demands } = this.props;
-    var modalContainer = this.state.isOpen ? <Modal closeModal={this.closeModal} demands={demands}/> : '';
     let markerObjects = [];
     let searchResult = this.props.demands && this.props.demands.map((item, index) => {
       markerObjects.push(item.ngo);
       return (
-        <div className = 'ngo' key = {index} onClick={this.openModal}>
+        <div className = 'ngo' key = {index} onClick = {() => this.toggleNgo(index)} ref = {(ref) => this['ngo' + index] = ref}>
           
           <div className = 'ngo-metadata'>
             <div className = 'col name'>
@@ -59,7 +55,7 @@ export class SearchResults extends Component {
             </div>
           </div>
 
-          <div className = {index == 0 ? 'ngo-demands' : 'ngo-demands'}>
+          <div className = {index == this.state.index ? 'ngo-demands' : 'ngo-demands hide'}>
             <ul>
               {
                 item.demands.map((demand, i) => {
@@ -78,7 +74,7 @@ export class SearchResults extends Component {
     return (
       <div className = 'search-results-container'>
         <div className = 'map-container'>
-          <Map markers={markerObjects} openModal={this.openModal}/>
+          <Map markers = {markerObjects} />
         </div>
 
         <div className = 'ngo-container'>
@@ -86,9 +82,6 @@ export class SearchResults extends Component {
             searchResult
           } 
         </div>
-        { //FIX: we don't need this modal
-          modalContainer
-        }
       </div>
     )
   }

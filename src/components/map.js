@@ -68,6 +68,5 @@ export default class Map extends Component {
 }
 
 Map.propTypes = {
-    markers: React.PropTypes.array.isRequired,
-    openModal: React.PropTypes.func
+    markers: React.PropTypes.array.isRequired
 }
