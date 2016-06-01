@@ -1,12 +1,16 @@
 .ngo {
 	background-color: #c4d8df;
 	color: #ffffff;
-	margin-bottom: 12px;
-	height: 80px;
+	margin-bottom: 10px;
+	height: 50px;
 	overflow: hidden;
 	padding: 8px;
 	display: flex;
-	justify-content: space-between;
+	//justify-content: space-between;
+
+	&:first-child {
+		margin-top: 10px;
+	}
 
 	&:last-child {
 		margin-bottom: 0px;
@@ -17,6 +21,10 @@
 		color: #4b6f7b;
 		font-weight: 300;
 		align-self: center;
+		padding-left: 4px;
+		padding-right: 4px;
+		width: 33%;
+		height: 100%;
 
 		&:last-child {
 			border-right: 0px;
@@ -28,7 +36,17 @@
 		}
 
 		&.contact {
+			
+			.email, .phone {
+				display: flex;
+				align-items: center;
 
+				span {
+					&:last-child {
+						padding: 4px;
+					}
+				}
+			}	
 		}
 	}
 }

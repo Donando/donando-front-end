@@ -49,14 +49,14 @@ export class SearchResults extends Component {
             {item.ngo.address}
           </div>
           <div className = 'col contact'>
-            <div className = {item.ngo.email ? 'email' : 'email hide'}>
+            <div className = 'email'>
               <span className = 'icon email-icon'><img src = '../static/images/icons/contact_mail.svg' /></span>
-              <span>{item.ngo.email}</span>
+              <span>{item.ngo.email || 'NA'}</span>
             </div>
             
-            <div className = {item.ngo.phone ? 'phone' : 'phone hide'}>
+            <div className = 'phone'>
               <span className = 'icon phone-icon'><img src = '../static/images/icons/contact_phone.svg' /></span>
-              <span>{item.ngo.phone}</span>
+              <span>{item.ngo.phone || 'NA'}</span>
             </div>
           </div>
         </div>
@@ -65,6 +65,10 @@ export class SearchResults extends Component {
 
     return (
       <div className = 'search-results-container'>
+        <div className = 'map-container'>
+          <Map markers={markerObjects} openModal={this.openModal}/>
+        </div>
+
         <div className = 'ngo-container'>
           {
             searchResult
@@ -73,9 +77,6 @@ export class SearchResults extends Component {
         { //FIX: we don't need this modal
           modalContainer
         }
-        <div className = 'map-container'>
-          <Map markers={markerObjects} openModal={this.openModal}/>
-        </div>
       </div>
     )
   }
