@@ -6,7 +6,7 @@ import Notification from 'components/notification'
 
 export class Main extends Component {
   render() {
-    let notification = {message: 'Start your search here'}; //FIX: to be replace with a value from the reducer
+    let notification = {message: '1349 NGOs found!'}; //FIX: to be replace with a value from the reducer
     return (
       <div className = 'container'>
         <div className = 'main'>

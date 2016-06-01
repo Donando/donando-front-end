@@ -6,7 +6,7 @@
 
 @include media($mq-Small) {
   .main {
-    padding: $gutter/2;
+    //padding: $gutter/2;
   }
 }
 
@@ -17,7 +17,7 @@
 
   .main {
     min-height: 650px;
-    padding: $gutter*2;
+    //padding: $gutter*2;
   }
 
   .col-narrow {

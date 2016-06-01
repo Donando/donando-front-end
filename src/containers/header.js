@@ -27,7 +27,7 @@ export class Header extends Component {
       <header className = 'header'>
         
         <div className = 'logo' onClick = {this.gotoHomePage}>
-          <img src = '../static/images/logo.svg' />
+          
         </div>
         
         <div className = 'search-inputs'>

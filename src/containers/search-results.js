@@ -74,14 +74,11 @@ export class SearchResults extends Component {
 
     return (
       <div className = 'search-results-container'>
+        <div className = 'ngo-container'>
+          { searchResults } 
+        </div>
         <div className = 'map-container'>
           <Map markers = {markerObjects} />
-        </div>
-
-        <div className = 'ngo-container'>
-          {
-            searchResults
-          } 
         </div>
       </div>
     )

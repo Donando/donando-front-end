@@ -4,45 +4,13 @@
 	margin-bottom: 10px;
 	
 	&:first-child {
-		margin-top: 10px;
+		@include media($mq-Small) {
+	    	margin-top: 10px;
+	    }
 	}
 
 	&:last-child {
 		margin-bottom: 0px;
-	}
-
-	.col {
-		border-right: 2px solid #4d6f7b;
-		color: #4b6f7b;
-		font-weight: 300;
-		align-self: center;
-		padding-left: 4px;
-		padding-right: 4px;
-		width: 33%;
-		height: 100%;
-
-		&:last-child {
-			border-right: 0px;
-		}
-
-		&.name {
-			font-weight: 500;
-			color: #4d6f7b;
-		}
-
-		&.contact {
-			
-			.email, .phone {
-				display: flex;
-				align-items: center;
-
-				span {
-					&:last-child {
-						padding: 4px;
-					}
-				}
-			}	
-		}
 	}
 
 	.ngo-metadata, .ngo-demands {
@@ -54,6 +22,54 @@
 		overflow: hidden;
 		display: flex;
 		padding: 8px;
+		flex-wrap: wrap;
+
+		@include media($mq-Small) {
+	    	height: auto;
+	    }
+
+		.col {
+			border-right: 2px solid #4d6f7b;
+			color: #4b6f7b;
+			font-weight: 300;
+			align-self: center;
+			padding-left: 4px;
+			padding-right: 4px;
+			height: 100%;
+			flex-grow: 1;
+
+			@include media($mq-Small) {
+		    	flex-basis: 100%;
+		    	border-right: 0px;
+		    }
+
+		    @include media($mq-Large) {
+		    	flex-basis: 0;
+		    }
+			
+			&:last-child {
+				border-right: 0px;
+			}
+
+			&.name {
+				font-weight: 500;
+				color: #4d6f7b;
+			}
+
+			&.contact {
+				
+				.email, .phone {
+					display: flex;
+					align-items: center;
+
+					span {
+						&:last-child {
+							padding: 4px;
+						}
+					}
+				}	
+			}
+		}
 	}
 
 	.ngo-demands {
