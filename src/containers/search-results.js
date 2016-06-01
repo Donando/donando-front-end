@@ -37,28 +37,40 @@ export class SearchResults extends Component {
     let searchResult = this.props.demands && this.props.demands.map((item, index) => {
       markerObjects.push(item.ngo);
       return (
-        <div className = 'ngo' key={index} onClick={this.openModal}>
-          {/*
-            item.demands.map((item, index) => ((<p key={index}>{item}</p>)))
-          */}
+        <div className = 'ngo' key = {index} onClick={this.openModal}>
           
-          <div className = 'col name'>
-            {item.ngo.name}
-          </div>
-          <div className = 'col address'>
-            {item.ngo.address}
-          </div>
-          <div className = 'col contact'>
-            <div className = 'email'>
-              <span className = 'icon email-icon'><img src = '../static/images/icons/contact_mail.svg' /></span>
-              <span>{item.ngo.email || 'NA'}</span>
+          <div className = 'ngo-metadata'>
+            <div className = 'col name'>
+              {item.ngo.name}
             </div>
-            
-            <div className = 'phone'>
-              <span className = 'icon phone-icon'><img src = '../static/images/icons/contact_phone.svg' /></span>
-              <span>{item.ngo.phone || 'NA'}</span>
+            <div className = 'col address'>
+              {item.ngo.address}
+            </div>
+            <div className = 'col contact'>
+              <div className = 'email'>
+                <span className = 'icon email-icon'><img src = '../static/images/icons/contact_mail.svg' /></span>
+                <span>{item.ngo.email || 'NA'}</span>
+              </div>
+              
+              <div className = 'phone'>
+                <span className = 'icon phone-icon'><img src = '../static/images/icons/contact_phone.svg' /></span>
+                <span>{item.ngo.phone || 'NA'}</span>
+              </div>
             </div>
           </div>
+
+          <div className = {index == 0 ? 'ngo-demands' : 'ngo-demands'}>
+            <ul>
+              {
+                item.demands.map((demand, i) => {
+                  return(
+                    <li key = {i}>{demand}</li>    
+                  )
+                })
+              }
+            </ul>
+          </div>
+
         </div>
       )
     });

@@ -18,11 +18,15 @@ export class Header extends Component {
     browserHistory.push('/search?location=' + this.locationInput.value + '&item=' + this.itemInput.value);
   }
 
+  gotoHomePage() {
+    browserHistory.push('/');
+  }
+
   render() {
     return (
       <header className = 'header'>
         
-        <div className = 'logo'>
+        <div className = 'logo' onClick = {this.gotoHomePage}>
           <img src = '../static/images/logo.svg' />
         </div>
         
