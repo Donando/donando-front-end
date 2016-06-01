@@ -42,7 +42,7 @@ export default class Map extends Component {
   }
   openModal() {
     $( document ).delegate('.info-window', 'click', function(){
-      this.props.openModal()
+      //this.props.openModal()
     }.bind(this));
   }
   componentDidMount() {

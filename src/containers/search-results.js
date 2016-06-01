@@ -12,8 +12,7 @@ export class SearchResults extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      display: false,
-      index: ''
+      ngo: []
     };
     this.toggleNgo = this.toggleNgo.bind(this);
   }
@@ -24,16 +23,18 @@ export class SearchResults extends Component {
   }
 
   toggleNgo(value) {
-    this.setState({ index: value });
+    let ngoTemp = this.state.ngo;
+    ngoTemp[value] = !this.state.ngo[value];
+    
+    this.setState({ ngo: ngoTemp });
   }
 
   render() {
-    const { demands } = this.props;
     let markerObjects = [];
-    let searchResult = this.props.demands && this.props.demands.map((item, index) => {
+    let searchResults = this.props.demands && this.props.demands.map((item, index) => {
       markerObjects.push(item.ngo);
       return (
-        <div className = 'ngo' key = {index} onClick = {() => this.toggleNgo(index)} ref = {(ref) => this['ngo' + index] = ref}>
+        <div className = 'ngo' key = {index} onClick = {() => this.toggleNgo(index)}>
           
           <div className = 'ngo-metadata'>
             <div className = 'col name'>
@@ -55,7 +56,7 @@ export class SearchResults extends Component {
             </div>
           </div>
 
-          <div className = {index == this.state.index ? 'ngo-demands' : 'ngo-demands hide'}>
+          <div className = {this.state.ngo[index] ? 'ngo-demands' : 'ngo-demands hide'}>
             <ul>
               {
                 item.demands.map((demand, i) => {
@@ -79,7 +80,7 @@ export class SearchResults extends Component {
 
         <div className = 'ngo-container'>
           {
-            searchResult
+            searchResults
           } 
         </div>
       </div>
