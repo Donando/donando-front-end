@@ -1,4 +1,11 @@
 .ngo {
 	background-color: #c4d8df;
 	color: #ffffff;
+	margin: 20px auto;
+	height: 80px;
+	overflow: hidden;
+
+	&:first-child {
+		margin-top: 0px;
+	}
 }

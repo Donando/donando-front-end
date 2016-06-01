@@ -12,7 +12,7 @@
 
 @include media($mq-Large) {
   .container {
-    max-width: 990px; // override bootstrap
+    //max-width: 990px; // override bootstrap
   }
 
   .main {
