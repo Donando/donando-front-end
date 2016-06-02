@@ -35,8 +35,10 @@ export class SearchResults extends Component {
     
     let newDemandsLength = nextProps.demands && nextProps.demands.length;
     let oldDemandsLength = this.props.demands && this.props.demands.length;
-    if(newDemandsLength != oldDemandsLength)
-      this.props.dispatch(set_notification_message({message: newDemandsLength + ' NGO ' + newDemandsLength > 0 ? 'results' : 'result' + ' found!'}));
+    if(newDemandsLength != oldDemandsLength) {
+      let result = newDemandsLength > 0 ? 'results' : 'result';
+      this.props.dispatch(set_notification_message({message: newDemandsLength + ' NGO ' + result + ' found!'}));
+    }
   }
 
   redirect(location, item) {
