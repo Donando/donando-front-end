@@ -6,15 +6,14 @@ import Notification from 'components/notification'
 
 export class Main extends Component {
   render() {
-    let notification = {message: '1349 NGOs found!'}; //FIX: to be replace with a value from the reducer
     return (
       <div className = 'container'>
         <div className = 'main'>
           <Header />
-          <div className = {this.props.searchStatus === 'loading'? 'loading-container': 'loading-container hide'}>
+          <div className = {this.props.common.loadingStatus === 'loading'? 'loading-container': 'loading-container hide'}>
             <p>Loading results....<br/>Please wait</p>
           </div>
-          <Notification notification = {notification} />
+          <Notification message = {this.props.common.notificationMessage} />
           {this.props.children}
         </div>
       </div>
@@ -23,7 +22,7 @@ export class Main extends Component {
 }
 
 Main.propTypes = {
-  searchStatus: React.PropTypes.string.isRequired
+  common: React.PropTypes.object.isRequired
 }
 function mapStateToProps(state) {
   return state

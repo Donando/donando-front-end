@@ -7,6 +7,7 @@ import Map from 'components/map'
 
 // Actions
 import { load_data } from 'redux/reducers/filter-reducer'
+import { set_notification_message } from 'redux/reducers/common-reducer'
 
 export class SearchResults extends Component {
   constructor(props) {
@@ -14,8 +15,32 @@ export class SearchResults extends Component {
     this.state = {
       ngo: []
     };
-    this.toggleNgo = this.toggleNgo.bind(this);
     this.redirect = this.redirect.bind(this);
+    this.toggleNgo = this.toggleNgo.bind(this);
+  }
+
+  componentWillMount() {
+    const { location, item } = this.props.location.query;
+    this.redirect(location, item); 
+  }
+
+  componentWillReceiveProps(nextProps) {
+    //FIX: need to write this logic better
+    
+    let newParams = nextProps.location.query;
+    let oldParams = this.props.location.query;
+    
+    if(oldParams.location != newParams.location || oldParams.item != newParams.item)
+      this.redirect(newParams.location, oldParams.item);
+    
+    let newDemandsLength = nextProps.demands && nextProps.demands.length;
+    let oldDemandsLength = this.props.demands && this.props.demands.length;
+    if(newDemandsLength != oldDemandsLength)
+      this.props.dispatch(set_notification_message({message: newDemandsLength + ' NGO result(s) found!'}));
+  }
+
+  redirect(location, item) {
+    this.props.dispatch(load_data(location, item));
   }
 
   toggleNgo(value) {
@@ -23,22 +48,6 @@ export class SearchResults extends Component {
     ngoTemp[value] = !this.state.ngo[value];
     
     this.setState({ ngo: ngoTemp });
-  }
-
-  componentWillMount() {
-    const { location, item } = this.props.location.query;
-    this.redirect(location, item);  
-  }
-
-  componentWillReceiveProps(nextProps) {
-    let newParams = nextProps.location.query;
-    let oldParams = this.props.location.query;
-    if(oldParams.location != newParams.location || oldParams.item != newParams.item)
-      this.redirect(newParams.location, oldParams.item);
-  }
-
-  redirect(location, item) {
-    this.props.dispatch(load_data(location, item)); 
   }
 
   render() {
@@ -97,8 +106,7 @@ export class SearchResults extends Component {
   }
 }
 SearchResults.propTypes = {
-  demands: React.PropTypes.array,
-  searchStatus: React.PropTypes.string
+  demands: React.PropTypes.array
 }
 function mapStateToProps(state) {
   return state;
