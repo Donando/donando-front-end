@@ -1,5 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
@@ -23,6 +24,12 @@ module.exports = {
   },
   plugins: [
     new ExtractTextPlugin('style.css'),
+    new CopyWebpackPlugin([
+      {
+        from: 'static',
+        to : 'static'
+      }
+    ]),
     new webpack.optimize.CommonsChunkPlugin('common.js'),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({

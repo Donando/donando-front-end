@@ -11,7 +11,6 @@ export class Header extends Component {
   handleKeyPress(event) {
     if(event.key === 'Enter') {
       this.search();
-      //this.context.router.push('/search?location=' + this.locationInput.value + '&item=' + this.itemInput.value);
     }
   }
 

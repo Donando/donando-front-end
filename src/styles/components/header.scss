@@ -4,6 +4,10 @@
 	padding: 10px;
 	flex-wrap: wrap;
 
+	@include media($mq-Small) {
+    	justify-content: center;
+    }
+
 	.logo, .search-inputs {
 		align-self: center;	
 	}
