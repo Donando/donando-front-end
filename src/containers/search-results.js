@@ -26,7 +26,7 @@ export class SearchResults extends Component {
 
   componentWillReceiveProps(nextProps) {
     //FIX: need to write this logic better
-    
+
     let newParams = nextProps.location.query;
     let oldParams = this.props.location.query;
     
@@ -36,7 +36,7 @@ export class SearchResults extends Component {
     let newDemandsLength = nextProps.demands && nextProps.demands.length;
     let oldDemandsLength = this.props.demands && this.props.demands.length;
     if(newDemandsLength != oldDemandsLength)
-      this.props.dispatch(set_notification_message({message: newDemandsLength + ' NGO result(s) found!'}));
+      this.props.dispatch(set_notification_message({message: newDemandsLength + ' NGO ' + newDemandsLength > 0 ? 'results' : 'result' + ' found!'}));
   }
 
   redirect(location, item) {
