@@ -33,7 +33,6 @@ export class SearchResults extends Component {
   componentWillReceiveProps(nextProps) {
     let newParams = nextProps.location.query;
     let oldParams = this.props.location.query;
-    console.log('old location '+oldParams.location+' new location '+newParams.location);
     if(oldParams.location != newParams.location || oldParams.item != newParams.item)
       this.redirect(newParams.location, oldParams.item);
   }
