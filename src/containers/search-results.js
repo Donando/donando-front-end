@@ -15,11 +15,7 @@ export class SearchResults extends Component {
       ngo: []
     };
     this.toggleNgo = this.toggleNgo.bind(this);
-  }
-
-  componentWillMount() {
-    const { location, item } = this.props.location.query;
-    this.props.dispatch(load_data(location, item));
+    this.redirect = this.redirect.bind(this);
   }
 
   toggleNgo(value) {
@@ -27,6 +23,23 @@ export class SearchResults extends Component {
     ngoTemp[value] = !this.state.ngo[value];
     
     this.setState({ ngo: ngoTemp });
+  }
+
+  componentWillMount() {
+    const { location, item } = this.props.location.query;
+    this.redirect(location, item);  
+  }
+
+  componentWillReceiveProps(nextProps) {
+    let newParams = nextProps.location.query;
+    let oldParams = this.props.location.query;
+    console.log('old location '+oldParams.location+' new location '+newParams.location);
+    if(oldParams.location != newParams.location || oldParams.item != newParams.item)
+      this.redirect(newParams.location, oldParams.item);
+  }
+
+  redirect(location, item) {
+    this.props.dispatch(load_data(location, item)); 
   }
 
   render() {
