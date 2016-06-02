@@ -31,7 +31,6 @@ export function results_loaded(data) {
 }
 
 export function set_notification_message(data) {
-  console.log('in set_notification_message ', data);
   return {
     type: SET_NOTIFICATION_MESSAGE,
     payload: {
