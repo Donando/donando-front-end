@@ -27,9 +27,7 @@ export class Header extends Component {
     return (
       <header className = 'header'>
         
-        <div className = 'logo' onClick = {this.gotoHomePage}>
-          
-        </div>
+        <div className = 'logo' onClick = {this.gotoHomePage}></div>
         
         <div className = 'search-inputs'>
           
