@@ -3,7 +3,7 @@ import fetch from 'isomorphic-fetch'
 import { createReducer } from 'utils/redux'
 import { API } from 'utils/api'
 
-import { loading_results,  results_loaded } from './search-status-reducer'
+import { results_loading,  results_loaded, set_notification_message } from './common-reducer'
 import { update_demands_list } from './demands-list-reducer'
 
 const CHANGE_FILTER_LOCATION = 'change_filter_location';
@@ -17,7 +17,7 @@ const initialState = {
 
 export function load_data(location = '', item = '') {
   return function(dispatch) {
-    dispatch(loading_results());
+    dispatch(results_loading());
     dispatch(change_filter_location(location));
     dispatch(change_filter_item(item));
     let queryParams = '?' + API.QUERY_PARAMS.ADDRESS_SEARCH + '=' + location + '&' + API.QUERY_PARAMS.ITEM_SEARCH + '=' + item;
@@ -30,9 +30,8 @@ export function load_data(location = '', item = '') {
         dispatch(update_demands_list(json));
         dispatch(results_loaded('loaded'));
       }).catch(function(err) {
-        // Fix me: Have proper error logging
-        console.log('some error happened in fetch. ', err);
-        dispatch(results_loaded('failed'));
+        dispatch(set_notification_message({data: err}));
+        dispatch(results_loaded('loaded'));
       });
   }
 }

@@ -2,20 +2,82 @@ html, body {
   margin: 0;
   padding: 0;
   font-size: 1rem;
+  font-family: Roboto;
 }
+
 .relative {
   position: relative
 }
+
 .absolute {
   position: absolute;
 }
+
 .fixed {
   position: fixed;
 }
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: inline-block;
+}
+
+.clearfix {
+  clear: both;
+}
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  //padding-left: 15px;
+  //padding-right: 15px; 
+
+  .search-results-container {
+    display: flex;
+    padding: 10px;
+    flex-wrap: wrap-reverse;
+
+    .ngo-container, .map-container {
+      height: 500px;
+    }
+
+    .ngo-container {
+      flex-grow: 2;
+      overflow-y: auto;
+
+      @include media($mq-Small) {
+        flex-basis: 100%;
+      }
+
+      @include media($mq-Large) {
+        flex-basis: 600px;
+      }
+    }
+
+    .map-container {
+     flex-grow: 1;
+     //height: 250px;
+
+      @include media($mq-Small) {
+        flex-basis: 100%;
+      }
+
+      @include media($mq-Large) {
+        flex-basis: 400px;
+      }
+    }
+  }   
+}
+
 .loading-container {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
   color: #fff;
   opacity: 0.7;
   background: #000;

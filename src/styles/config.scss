@@ -1,0 +1,33 @@
+// Breakpoint sizes.
+$bp-wide-min:    1220px;
+$bp-netbook-max: ($bp-wide-min - 1px);
+$bp-netbook-min: 980px;
+$bp-tablet-max:  ($bp-netbook-min - 1px);
+$bp-tablet-min:  760px;
+$bp-phablet-max: ($bp-tablet-min - 1px);
+$bp-phablet-min: 480px;
+$bp-phone-max:   ($bp-phablet-min - 1px);
+
+$bp-wide-minHeight:  750px;
+
+// Named @media-queries
+$mq-wide:             'screen and (min-width:'+$bp-wide-min+') and (min-height:'+$bp-wide-minHeight+')';
+$mq-compact-wide:     'screen and (min-width:'+$bp-wide-min+') and (max-height:'+($bp-wide-minHeight - 1)+')';
+$mq-netbook:          'screen and (min-width:'+$bp-netbook-min+') and (max-width:'+$bp-netbook-max+'), screen and (min-width:'+$bp-netbook-min+') and (max-height:'+($bp-wide-minHeight - 1)+')';
+  $mq-netbook_up:     'screen and (min-width:'+$bp-netbook-min+')';
+$mq-tablet:           'screen and (min-width:'+$bp-tablet-min+') and (max-width:'+$bp-tablet-max+')';
+  $mq-tablet_netbook: 'screen and (min-width:'+$bp-tablet-min+') and (max-width:'+$bp-netbook-max+'), screen and (min-width:'+$bp-tablet-min+') and (max-height:'+($bp-wide-minHeight - 1)+')';
+  $mq-tablet_up:      'screen and (min-width:'+$bp-tablet-min+')';
+$mq-phablet:          'screen and (min-width:'+$bp-phablet-min+') and (max-width:'+$bp-phablet-max+')';
+  $mq-phablet_tablet: 'screen and (min-width:'+$bp-phablet-min+') and (max-width:'+$bp-tablet-max+')';
+  $mq-phablet_up:     'screen and (min-width:'+$bp-phablet-min+')';
+$mq-phone:            'screen and (max-width:'+$bp-phone-max+')';
+  $mq-phone_phablet:  'screen and (max-width:'+$bp-phablet-max+')';
+  $mq-phone_tablet:   'screen and (max-width:'+$bp-tablet-max+')';
+$mq-base:             'screen';
+
+$mq-Small: $mq-phone_phablet; // alias
+$mq-Large: $mq-tablet_up;     // alias
+
+
+$gutter: 30px;

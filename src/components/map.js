@@ -2,9 +2,6 @@
 import React, { Component } from 'react'
 import $ from 'jquery'
 
-// Styles
-import 'styles/map.scss'
-
 // Constants
 // Inital lat long is Berlin
 const INITIAL_LATITUDE = 52.52;
@@ -35,8 +32,8 @@ export default class Map extends Component {
     markerArray.map((item) => {
       marker = new google.maps.Marker({
         position: {
-          lat: item.latitude,
-          lng: item.longitude
+          lat: item.latitude || INITIAL_LATITUDE,
+          lng: item.longitude || INITIAL_LONGITUDE
         },
         map: this.state.map
       });
@@ -45,17 +42,17 @@ export default class Map extends Component {
   }
   openModal() {
     $( document ).delegate('.info-window', 'click', function(){
-      this.props.openModal()
+      //this.props.openModal()
     }.bind(this));
   }
   componentDidMount() {
     let map = new google.maps.Map($('#map').get(0), {
-          center: {
-            lat: INITIAL_LATITUDE,
-            lng: INITIAL_LONGITUDE
-          },
-          zoom: INITIAL_ZOOM
-        });
+      center: {
+        lat: INITIAL_LATITUDE,
+        lng: INITIAL_LONGITUDE
+      },
+      zoom: INITIAL_ZOOM
+    });
     this.setState({map});
     this.updateMarkers(this.props.markers);
   }
@@ -71,6 +68,5 @@ export default class Map extends Component {
 }
 
 Map.propTypes = {
-    markers: React.PropTypes.array.isRequired,
-    openModal: React.PropTypes.func
+    markers: React.PropTypes.array.isRequired
 }

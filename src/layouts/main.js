@@ -1,25 +1,28 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import Header from './header'
+import Header from 'containers/header'
+import Notification from 'components/notification'
 
 export class Main extends Component {
   render() {
     return (
       <div className = 'container'>
-        <Header />
-        <div className = 'relative'>
-          <div className={this.props.searchStatus === 'loading'? 'loading-container': 'loading-container hide'}>
+        <div className = 'main'>
+          <Header />
+          <div className = {this.props.common.loadingStatus === 'loading'? 'loading-container': 'loading-container hide'}>
             <p>Loading results....<br/>Please wait</p>
           </div>
+          <Notification message = {this.props.common.notificationMessage} />
           {this.props.children}
         </div>
-      </div>)
+      </div>
+    )
   }
 }
 
 Main.propTypes = {
-  searchStatus: React.PropTypes.string.isRequired
+  common: React.PropTypes.object.isRequired
 }
 function mapStateToProps(state) {
   return state
