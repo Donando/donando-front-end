@@ -18,7 +18,7 @@ Setup
 3) To start the app, run
 
 `npm start`
- Navigate to localhost:8080 in your browser to view the app
+  * Navigate to localhost:8080 in your browser to view the app
 
 4) This project is enabled with **ESLint**. Any JS file that you write must be linted using ESLint. To run the linting command type
 
