@@ -55,7 +55,7 @@ src directory
  - **static** - Static assets in the application
  - **styles** - SASS files for the application
 
-To do
+Todo
 --------------
 
 Following are the pending items
