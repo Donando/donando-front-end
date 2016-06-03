@@ -33,7 +33,7 @@ export class Header extends Component {
           <div className = 'search-input'>
             <label>Donation</label>
             <div className = 'input-group'>
-              <input type = 'text' placeholder = 'what can you give?' ref = {(ref) => this.itemInput = ref} onKeyPress = {this.handleKeyPress} />
+              <input type = 'text' placeholder = 'what can you give?' ref = {(ref) => this.itemInput = ref} onKeyPress = {this.handleKeyPress} onBlur = {this.search} />
               <span className = 'search-icon'><img src = '../static/images/icons/search.svg' /></span>
             </div>
           </div>
@@ -41,7 +41,7 @@ export class Header extends Component {
           <div className = 'search-input'>
             <label>Location</label>
             <div className = 'input-group'>
-              <input type = 'text' placeholder = 'where is it needed?' ref = {(ref) => this.locationInput = ref} onKeyPress = {this.handleKeyPress} />
+              <input type = 'text' placeholder = 'where is it needed?' ref = {(ref) => this.locationInput = ref} onKeyPress = {this.handleKeyPress} onBlur = {this.search} />
               <span className = 'icon search-icon'><img src = '../static/images/icons/search.svg' /></span>
             </div>
           </div>
