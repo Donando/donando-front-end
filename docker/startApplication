@@ -1,0 +1,17 @@
+#!/bin/bash
+# startup wrapper: sets the backend url from environment in ./bundle.js
+
+# set backend URL
+echo "Configuring backend api"
+bundlefile="var/www/html/bundle.js"
+
+# this can be used as an example for replacing backend api's url at some point
+# BACKEND_API_URL needs to be set in the senza file
+#if [ -e $bundlefile ]
+#then
+#  sed -i -e "s#https://fathomless-ridge-60760.herokuapp.com/#$BACKEND_API_URL#g" $bundlefile
+#fi
+
+# start nginx
+echo "Starting nginx now"
+nginx -g 'daemon off;'
