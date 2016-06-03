@@ -54,6 +54,11 @@
 			&.name {
 				font-weight: 500;
 				color: #4d6f7b;
+				text-align: right;
+
+				@include media($mq-Small) {
+			    	text-align: left;
+			    }
 			}
 
 			&.contact {
