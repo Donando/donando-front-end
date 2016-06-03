@@ -1,7 +1,7 @@
 Donando Front-end Repo
 ===================
 
-This document explains about the tech stack, common practices used in the repo
+This document explains the tech stack, common practices used in the repo
 
 Setup
 -----
@@ -18,7 +18,7 @@ Setup
 3) To start the app, run
 
 `npm start`
-  Navigate to localhost:8080 in your browser to view the app
+ Navigate to localhost:8080 in your browser to view the app
 
 4) This project is enabled with **ESLint**. Any JS file that you write must be linted using ESLint. To run the linting command type
 
@@ -27,7 +27,6 @@ Setup
 5) To build the project, run
 
 `npm run build`
-
 
 
 Tech Stack
@@ -61,9 +60,7 @@ To do
 
 Following are the pending items
 
- - **Style** - Add CSS based on the final design
  - **Results page** - Results page should contain proper information and structure
  - **Pagination** - Add pagination for results
- - **Error Messages** - Proper error messages for no results from API, user not entering madatory details..etc
- - **Responsiveness** - Make the website work in mobile browsers
+ details..etc
  - **Testing** - Add Unit test cases
