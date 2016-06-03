@@ -61,7 +61,16 @@ export class SearchResults extends Component {
           
           <div className = 'ngo-metadata'>
             <div className = 'col name'>
-              {item.ngo.name}
+              {
+                (() => {
+                  if(item.ngo.url) {
+                    return(
+                      <a href = {item.ngo.url} target = '_blank' onClick = {(event) => event.stopPropagation}>{item.ngo.name}</a>
+                    )
+                  } else
+                    return(<span>{item.ngo.name}</span>)
+                })()
+              }
             </div>
             <div className = 'col address'>
               {item.ngo.address}
