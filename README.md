@@ -60,7 +60,4 @@ To do
 
 Following are the pending items
 
- - **Results page** - Results page should contain proper information and structure
- - **Pagination** - Add pagination for results
- details..etc
  - **Testing** - Add Unit test cases
