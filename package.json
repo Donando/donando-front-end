@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --hot --inline --progress --config ./webpack.config.dev.js”,
+    "start": "webpack-dev-server --hot --inline --progress --config ./webpack.config.dev.js",
     "lint": "eslint . --ext .js",
     "clean": "rm -rf dist",
     "build": "npm run lint && npm run clean && webpack --define process.env.NODE_ENV='\"production\"' --progress --colors --config ./webpack.config.prod.js"
