@@ -4,13 +4,18 @@
   "description": "Aggregator platform for demands of NGOs",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha --compilers js:babel-register --recursive --require test/config.js --require ignore-styles",
+    "test:watch": "npm test -- --watch",
     "start": "npm install && node server.js",
     "lint": "eslint . --ext .js",
     "clean": "rm -rf dist",
     "build": "npm run lint && npm run clean && webpack --define process.env.NODE_ENV='\"production\"' --progress --colors --config ./webpack.config.prod.js"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Donando/donando-front-end.git"
+  },
+  "author": "Andra, Princiya and Siva",
   "license": "ISC",
   "devDependencies": {
     "babel": "^6.5.2",
