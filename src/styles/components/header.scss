@@ -3,7 +3,7 @@
 	background-color: #cab77f;
 	padding: 10px;
 	flex-wrap: wrap;
-
+	
 	@include media($mq-Small) {
     	justify-content: center;
     }
@@ -66,7 +66,7 @@
 					background-color: transparent;
 
 					&:focus {
-						border: 0px;
+						outline-style: none;
 					}
 				}
 			}

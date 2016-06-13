@@ -19,7 +19,7 @@
 
 	.ngo-metadata {
 		height: 50px;
-		overflow: hidden;
+		//overflow: hidden;
 		display: flex;
 		padding: 8px;
 		flex-wrap: wrap;
@@ -33,8 +33,8 @@
 			color: #4b6f7b;
 			font-weight: 300;
 			align-self: center;
-			padding-left: 4px;
-			padding-right: 4px;
+			padding-left: 10px;
+			padding-right: 10px;
 			height: 100%;
 			flex-grow: 1;
 
@@ -54,6 +54,11 @@
 			&.name {
 				font-weight: 500;
 				color: #4d6f7b;
+				text-align: right;
+
+				@include media($mq-Small) {
+			    	text-align: left;
+			    }
 			}
 
 			&.contact {
@@ -74,8 +79,8 @@
 
 	.ngo-demands {
 		background-color: #e6ddc0;
-		max-height: 200px;
-		overflow-y: auto;
+		//max-height: 200px;
+		//overflow-y: auto;
 
 		ul {
 			padding: 0px;
