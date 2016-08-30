@@ -1,0 +1,8 @@
+#!/bin/bash
+
+: "${VERSION?You have to specify the artifact VERSION. Example: VERSION=0.0.4 ./deploy/build-prod}"
+
+VERSION=$VERSION \
+  TARGET=prod \
+  DONANDOAPP_API_URL=https://fathomless-ridge-60760.herokuapp.com \
+  ./deploy/build

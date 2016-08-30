@@ -8,7 +8,7 @@
     "start": "webpack-dev-server --hot --inline --progress --config ./webpack.config.dev.js",
     "lint": "eslint . --ext .js",
     "clean": "rm -rf dist",
-    "build": "npm run lint && npm run clean && webpack --define process.env.NODE_ENV='\"production\"' --progress --colors --config ./webpack.config.prod.js"
+    "build": "npm run lint && webpack --define process.env.NODE_ENV='\"production\"' --progress --colors --config ./webpack.config.prod.js"
   },
   "author": "",
   "license": "ISC",
@@ -41,6 +41,7 @@
   "dependencies": {
     "bootstrap-sass": "^3.3.6",
     "express": "^4.13.4",
+    "isomorphic-fetch": "^2.2.1",
     "jquery": "^2.2.3",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",

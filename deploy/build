@@ -1,0 +1,27 @@
+#!/bin/bash
+
+: "${VERSION?You have to specify the artifact VERSION}"
+: "${TARGET?You have to specify a TARGET}"
+: "${DONANDOAPP_API_URL?You have to specify the DONANDOAPP_API_URL}"
+
+# run npm install
+docker build -t lab/donandoapp-fe -f deploy/Dockerfile.build .
+
+# run build to copy all into ./dist/
+mkdir -p ./dist
+docker run \
+  -e DONANDOAPP_API_URL=$DONANDOAPP_API_URL \
+  --rm -v $PWD/dist:/usr/src/app/dist -w /usr/src/app lab/donandoapp-fe npm run build
+
+# add scm-source.json
+./deploy/scm-source.sh
+
+# build docker images using tag -- $VERSION
+docker build -t pierone.stups.zalan.do/lab/donandoapp-fe-$TARGET:$VERSION .
+
+# remove scm-source.json
+rm scm-source.json
+
+echo "Next step:"
+echo "=> VERSION=$VERSION ./deploy/run-$TARGET"
+

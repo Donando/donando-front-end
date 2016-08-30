@@ -1,0 +1,10 @@
+#!/bin/bash
+
+: "${VERSION?You have to specify the artifact VERSION. Example: VERSION=0.0.4 ./deploy/run}"
+: "${TARGET?You have to specify a TARGET}"
+
+# run container and remove afterwards
+docker run --rm -it -p 8080:8080 pierone.stups.zalan.do/lab/donandoapp-fe-$TARGET:$VERSION
+
+echo "Next step:"
+echo "=> VERSION=$VERSION ./deploy/push-$TARGET"

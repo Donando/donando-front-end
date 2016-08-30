@@ -1,0 +1,44 @@
+
+# basic information for generating and executing this definition
+SenzaInfo:
+  StackName: sevsec-fe-staging
+  Parameters:
+    - ImageVersion:
+        Description: "Docker image version of sevsec-fe-staging."
+
+# a list of senza components to apply to the definition
+SenzaComponents:
+
+  # this basic configuration is required for the other components
+  - Configuration:
+      Type: Senza::StupsAutoConfiguration # auto-detect network setup
+
+  # will create a launch configuration and auto scaling group with scaling triggers
+  - AppServer:
+      Type: Senza::TaupageAutoScalingGroup
+      InstanceType: t2.small
+      SecurityGroups:
+        - app-sevsec-fe-staging
+      IamRoles:
+        - app-sevsec-fe-staging
+      ElasticLoadBalancer: AppLoadBalancer
+      AssociatePublicIpAddress: false # change for standalone deployment in default VPC
+      TaupageConfig:
+        application_version: "{{Arguments.ImageVersion}}"
+        runtime: Docker
+        source: "pierone.stups.zalan.do/collab/sevsec-fe-staging:{{Arguments.ImageVersion}}"
+        health_check_path: /
+        ports:
+          8080: 8080
+        mint_bucket: "zalando-stups-mint-780950270683-eu-west-1"
+        root: true
+        scalyr_account_key: "aws:kms:CiBhMdFAZwb+IyL/07A0qtR4wr4WJPz8lczUdCwXvh6UbRK1AQEBAgB4YTHRQGcG/iMi/9OwNKrUeMK+FiT8/JXM1HQsF74elG0AAACMMIGJBgkqhkiG9w0BBwagfDB6AgEAMHUGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMch8FKc/qJ3SMCIbGAgEQgEgbcRvQPWXZZB1p9P9HI8Um6bQ7RwLVWijuDuuKU/QQeAI/qyxcTrBOO8VOpqCcy3vmq/8EgUCXwJzcW++NUOu4yyNp5ZrerGU="
+
+  # creates an ELB entry and Route53 domains to this ELB
+  - AppLoadBalancer:
+      Type: Senza::WeightedDnsElasticLoadBalancer
+      HTTPPort: 8080
+      HealthCheckPath: /
+      SecurityGroups:
+        - app-sevsec-fe-staging-lb
+      Scheme: internet-facing
