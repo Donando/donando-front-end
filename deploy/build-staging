@@ -1,0 +1,13 @@
+#!/bin/bash
+
+: "${VERSION?You have to specify the artifact VERSION. Example: VERSION=0.0.4 ./deploy/build-staging}"
+
+VERSION=$VERSION \
+  TARGET=staging \
+  SEVSEC_API_URL=https://sevsec-be-staging.collab.zalan.do \
+  GOOGLE_ANALYTICS_ID=UA-76740716-3 \
+  APP_DYNAMICS_ID=ZA-AAB-AXE \
+  FEATURE_SUFFICIENT_INFLUENCER_FILTER=true \
+  FEATURE_CAMPAIGNS=true \
+  FEATURE_CAMPAIGN_REPORTS=true \
+  ./deploy/build

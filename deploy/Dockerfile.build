@@ -1,0 +1,18 @@
+FROM node:4.4.4
+MAINTAINER Team Collab <princiya.marina.sequeira@zalando.de>
+
+WORKDIR /usr/src/app
+
+ADD package.json package.json
+RUN npm install --quiet
+
+# add app source and configs
+ADD src src
+ADD .babelrc .babelrc
+ADD .bootstraprc .bootstraprc
+ADD .eslintignore .eslintignore
+ADD .eslintrc .eslintrc
+ADD webpack.config.prod.js webpack.config.prod.js
+
+RUN mkdir -p ./dist
+

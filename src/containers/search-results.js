@@ -93,7 +93,7 @@ export class SearchResults extends Component {
               {
                 item.demands.map((demand, i) => {
                   return(
-                    <li key = {i}>{demand}</li>    
+                    <li key = {i}><pre>{demand}</pre></li>    
                   )
                 })
               }
@@ -103,7 +103,7 @@ export class SearchResults extends Component {
         </div>
       )
     });
-
+    
     return (
       <div className = 'search-results-container'>
         <div className = 'ngo-container'>

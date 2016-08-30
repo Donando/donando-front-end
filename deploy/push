@@ -1,0 +1,12 @@
+#!/bin/bash
+
+: "${VERSION?You have to specify the artifact VERSION}"
+: "${TARGET?You have to specify a TARGET}"
+
+# push docker image using tag -- $VERSION
+docker push pierone.stups.zalan.do/collab/sevsec-fe-$TARGET:$VERSION
+
+STACK_VERSION=${VERSION//./}
+
+echo "Next step:"
+echo "=> senza create ./deploy/sevsec-fe-$TARGET.yaml --region eu-central-1 $STACK_VERSION $VERSION"
