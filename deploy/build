@@ -2,32 +2,22 @@
 
 : "${VERSION?You have to specify the artifact VERSION}"
 : "${TARGET?You have to specify a TARGET}"
-: "${SEVSEC_API_URL?You have to specify the SEVSEC_API_URL}"
-: "${GOOGLE_ANALYTICS_ID?You have to specify the GOOGLE_ANALYTICS_ID}"
-: "${APP_DYNAMICS_ID?You have to specify the APP_DYNAMICS_ID}"
-: "${FEATURE_SUFFICIENT_INFLUENCER_FILTER?You have to specify the FEATURE_SUFFICIENT_INFLUENCER_FILTER}"
-: "${FEATURE_CAMPAIGNS?You have to specify the FEATURE_CAMPAIGNS}"
-: "${FEATURE_CAMPAIGN_REPORTS?You have to specify the FEATURE_CAMPAIGN_REPORTS}"
+: "${DONANDOAPP_API_URL?You have to specify the DONANDOAPP_API_URL}"
 
 # run npm install
-docker build -t collab/sevsec-fe -f deploy/Dockerfile.build .
+docker build -t lab/donandoapp-fe -f deploy/Dockerfile.build .
 
 # run build to copy all into ./dist/
 mkdir -p ./dist
 docker run \
-  -e SEVSEC_API_URL=$SEVSEC_API_URL \
-  -e GOOGLE_ANALYTICS_ID=$GOOGLE_ANALYTICS_ID \
-  -e APP_DYNAMICS_ID=$APP_DYNAMICS_ID \
-  -e FEATURE_SUFFICIENT_INFLUENCER_FILTER=$FEATURE_SUFFICIENT_INFLUENCER_FILTER \
-  -e FEATURE_CAMPAIGNS=$FEATURE_CAMPAIGNS \
-  -e FEATURE_CAMPAIGN_REPORTS=FEATURE_CAMPAIGN_REPORTS \
-  --rm -v $PWD/dist:/usr/src/app/dist -w /usr/src/app collab/sevsec-fe npm run build
+  -e DONANDOAPP_API_URL=$DONANDOAPP_API_URL \
+  --rm -v $PWD/dist:/usr/src/app/dist -w /usr/src/app lab/donandoapp-fe npm run build
 
 # add scm-source.json
 ./deploy/scm-source.sh
 
 # build docker images using tag -- $VERSION
-docker build -t pierone.stups.zalan.do/collab/sevsec-fe-$TARGET:$VERSION .
+docker build -t pierone.stups.zalan.do/lab/donandoapp-fe-$TARGET:$VERSION .
 
 # remove scm-source.json
 rm scm-source.json

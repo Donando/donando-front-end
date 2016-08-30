@@ -26,7 +26,7 @@ SenzaComponents:
       TaupageConfig:
         application_version: "{{Arguments.ImageVersion}}"
         runtime: Docker
-        source: "pierone.stups.zalan.do/collab/donandoapp-fe:{{Arguments.ImageVersion}}"
+        source: "pierone.stups.zalan.do/lab/donandoapp-fe:{{Arguments.ImageVersion}}"
         health_check_path: /
         ports:
           8080: 8080
