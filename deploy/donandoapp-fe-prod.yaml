@@ -16,7 +16,7 @@ SenzaComponents:
   # will create a launch configuration and auto scaling group with scaling triggers
   - AppServer:
       Type: Senza::TaupageAutoScalingGroup
-      InstanceType: t2.small
+      InstanceType: t2.micro
       SecurityGroups:
         - app-donandoapp-fe
       IamRoles:
@@ -30,7 +30,7 @@ SenzaComponents:
         health_check_path: /
         ports:
           8080: 8080
-        mint_bucket: "zalando-stups-mint-288593816804-eu-west-1"
+        mint_bucket: "zalando-stups-mint-288593816804-eu-central-1"
         root: true
 
   # creates an ELB entry and Route53 domains to this ELB
