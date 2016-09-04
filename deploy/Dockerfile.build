@@ -1,5 +1,5 @@
 FROM node:4.4.4
-MAINTAINER Team Collab <princiya.marina.sequeira@zalando.de>
+MAINTAINER Team Donando <princiya.marina.sequeira@zalando.de>
 
 WORKDIR /usr/src/app
 
