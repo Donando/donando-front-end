@@ -4,7 +4,7 @@
 : "${TARGET?You have to specify a TARGET}"
 
 # push docker image using tag -- $VERSION
-docker push pierone.stups.zalan.do/lab/donandoapp-fe-$TARGET:$VERSION
+docker push pierone.stups.zalan.do/labs/donandoapp-fe-$TARGET:$VERSION
 
 STACK_VERSION=${VERSION//./}
 

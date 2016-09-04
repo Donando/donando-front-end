@@ -26,13 +26,12 @@ SenzaComponents:
       TaupageConfig:
         application_version: "{{Arguments.ImageVersion}}"
         runtime: Docker
-        source: "pierone.stups.zalan.do/lab/donandoapp-fe:{{Arguments.ImageVersion}}"
+        source: "pierone.stups.zalan.do/labs/donandoapp-fe-prod:{{Arguments.ImageVersion}}"
         health_check_path: /
         ports:
           8080: 8080
-        mint_bucket: "zalando-stups-mint-780950270683-eu-west-1"
+        mint_bucket: "zalando-stups-mint-288593816804-eu-west-1"
         root: true
-        scalyr_account_key: "aws:kms:CiBhMdFAZwb+IyL/07A0qtR4wr4WJPz8lczUdCwXvh6UbRK1AQEBAgB4YTHRQGcG/iMi/9OwNKrUeMK+FiT8/JXM1HQsF74elG0AAACMMIGJBgkqhkiG9w0BBwagfDB6AgEAMHUGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMch8FKc/qJ3SMCIbGAgEQgEgbcRvQPWXZZB1p9P9HI8Um6bQ7RwLVWijuDuuKU/QQeAI/qyxcTrBOO8VOpqCcy3vmq/8EgUCXwJzcW++NUOu4yyNp5ZrerGU="
 
   # creates an ELB entry and Route53 domains to this ELB
   - AppLoadBalancer:
