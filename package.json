@@ -1,6 +1,6 @@
 {
   "name": "donando",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Aggregator platform for demands of NGOs",
   "main": "index.js",
   "scripts": {
