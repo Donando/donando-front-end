@@ -3,23 +3,23 @@
 	background-color: #cab77f;
 	padding: 10px;
 	flex-wrap: wrap;
-	
+
 	@include media($mq-Small) {
     	justify-content: center;
     }
 
 	.logo, .search-inputs {
-		align-self: center;	
+		align-self: center;
 	}
 
 	.logo {
 		width: 120px;
     	height: 120px;
-	    background: url('../static/images/logo.svg');
+	    background: url('../static/images/icons/new_logo.png');
 	    background-position: 3px -4px;
 	    background-size: 100%;
-	    opacity: 0.5;
-	    
+	    opacity: 1;
+
 		img {
 			opacity: 0.5;
 			width: 100%;
@@ -57,7 +57,7 @@
 				height: 33px;
 				display: flex;
     			align-items: center;
-    			
+
 				input[type = 'text'] {
 					height: 100%;
 					width: 100%;
