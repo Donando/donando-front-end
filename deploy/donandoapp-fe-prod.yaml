@@ -30,6 +30,7 @@ SenzaComponents:
         health_check_path: /
         ports:
           8080: 8080
+          8181: 8181
         mint_bucket: "zalando-stups-mint-288593816804-eu-central-1"
         root: true
 
@@ -41,3 +42,13 @@ SenzaComponents:
       SecurityGroups:
         - app-donandoapp-fe-lb
       Scheme: internet-facing
+      Listeners:
+      - InstancePort: 8080
+        LoadBalancerPort: 443
+        InstanceProtocol: HTTP
+        Protocol: HTTPS
+        SSLCertificateId: "arn:aws:acm:eu-central-1:288593816804:certificate/c8de68fa-2b0e-4b48-b1e5-836ff9158bac"
+      - InstancePort: 8181
+        LoadBalancerPort: 80
+        InstanceProtocol: HTTP
+        Protocol: HTTP

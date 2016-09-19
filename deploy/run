@@ -4,7 +4,7 @@
 : "${TARGET?You have to specify a TARGET}"
 
 # run container and remove afterwards
-docker run --rm -it -p 8080:8080 pierone.stups.zalan.do/labs/donandoapp-fe-$TARGET:$VERSION
+docker run --rm -it -p 8181:8181 -p 8080:8080 pierone.stups.zalan.do/labs/donandoapp-fe-$TARGET:$VERSION
 
 echo "Next step:"
 echo "=> VERSION=$VERSION ./deploy/push-$TARGET"
