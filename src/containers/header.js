@@ -25,27 +25,27 @@ export class Header extends Component {
   render() {
     return (
       <header className = 'header'>
-        
+
         <div className = 'logo' onClick = {this.gotoHomePage}></div>
-        
+
         <div className = 'search-inputs'>
-          
+
           <div className = 'search-input'>
-            <label>Donation</label>
+            <label>Spende</label>
             <div className = 'input-group'>
-              <input type = 'text' placeholder = 'what can you give?' ref = {(ref) => this.itemInput = ref} onKeyPress = {this.handleKeyPress} onBlur = {this.search} />
+              <input type = 'text' placeholder = 'Was kannst du spenden?' ref = {(ref) => this.itemInput = ref} onKeyPress = {this.handleKeyPress} onBlur = {this.search} />
               <span className = 'search-icon'><img src = '../static/images/icons/search.svg' /></span>
             </div>
           </div>
-          
+
           <div className = 'search-input'>
-            <label>Location</label>
+            <label>Ort</label>
             <div className = 'input-group'>
-              <input type = 'text' placeholder = 'where is it needed?' ref = {(ref) => this.locationInput = ref} onKeyPress = {this.handleKeyPress} onBlur = {this.search} />
+              <input type = 'text' placeholder = 'Wo werden deine Spenden gebraucht?' ref = {(ref) => this.locationInput = ref} onKeyPress = {this.handleKeyPress} onBlur = {this.search} />
               <span className = 'icon search-icon'><img src = '../static/images/icons/search.svg' /></span>
             </div>
           </div>
-        </div>  
+        </div>
       </header>
     )
   }

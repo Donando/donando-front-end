@@ -7,12 +7,12 @@ export class Footer extends Component {
         <ul className='footer__nav'>
           <li>
             <a onClick={() => this.props.handleClick('aboutUs')}>
-              About Us
+              Über uns
             </a>
           </li>
           <li>
             <a onClick={() => this.props.handleClick('contact')}>
-              Contact
+              Kontakt
             </a>
           </li>
         </ul>

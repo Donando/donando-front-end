@@ -21,7 +21,7 @@ export class SearchResults extends Component {
 
   componentWillMount() {
     const { location, item } = this.props.location.query;
-    this.redirect(location, item); 
+    this.redirect(location, item);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -29,15 +29,16 @@ export class SearchResults extends Component {
 
     let newParams = nextProps.location.query;
     let oldParams = this.props.location.query;
-    
+
     if(oldParams.location != newParams.location || oldParams.item != newParams.item)
       this.redirect(newParams.location, oldParams.item);
-    
+
     let newDemandsLength = nextProps.demands && nextProps.demands.length;
     let oldDemandsLength = this.props.demands && this.props.demands.length;
     if(newDemandsLength != oldDemandsLength) {
-      let result = newDemandsLength > 0 ? 'results' : 'result';
-      this.props.dispatch(set_notification_message({message: newDemandsLength + ' NGO ' + result + ' found!'}));
+      //let result = newDemandsLength > 0 ? 'results' : 'result';
+      //this.props.dispatch(set_notification_message({message: newDemandsLength + ' NGO ' + result + ' found!'}));
+      this.props.dispatch(set_notification_message({message: newDemandsLength + ' NGO Ergebnisse'}));
     }
   }
 
@@ -48,7 +49,7 @@ export class SearchResults extends Component {
   toggleNgo(value) {
     let ngoTemp = this.state.ngo;
     ngoTemp[value] = !this.state.ngo[value];
-    
+
     this.setState({ ngo: ngoTemp });
   }
 
@@ -58,7 +59,7 @@ export class SearchResults extends Component {
       markerObjects.push(item.ngo);
       return (
         <div className = 'ngo' key = {index} onClick = {() => this.toggleNgo(index)}>
-          
+
           <div className = 'ngo-metadata'>
             <div className = 'col name'>
               {
@@ -80,7 +81,7 @@ export class SearchResults extends Component {
                 <span className = 'icon email-icon'><img src = '../static/images/icons/contact_mail.svg' /></span>
                 <span>{item.ngo.email || 'NA'}</span>
               </div>
-              
+
               <div className = 'phone'>
                 <span className = 'icon phone-icon'><img src = '../static/images/icons/contact_phone.svg' /></span>
                 <span>{item.ngo.phone || 'NA'}</span>
@@ -93,7 +94,7 @@ export class SearchResults extends Component {
               {
                 item.demands.map((demand, i) => {
                   return(
-                    <li key = {i}><pre>{demand}</pre></li>    
+                    <li key = {i}><pre>{demand}</pre></li>
                   )
                 })
               }
@@ -103,11 +104,11 @@ export class SearchResults extends Component {
         </div>
       )
     });
-    
+
     return (
       <div className = 'search-results-container'>
         <div className = 'ngo-container'>
-          { searchResults } 
+          { searchResults }
         </div>
         <div className = 'map-container'>
           <Map markers = {markerObjects} />
