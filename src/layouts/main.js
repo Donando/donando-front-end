@@ -39,7 +39,10 @@ export class Main extends Component {
           <Header />
 
           <div className = {this.props.common.loadingStatus === 'loading'? 'loading-container': 'loading-container hide'}>
+            {/*
             <p>Loading results....<br/>Please wait</p>
+            */}
+            <p>Ergebnisse werden geladen</p>
           </div>
 
           <Notification message = {this.props.common.notificationMessage} />

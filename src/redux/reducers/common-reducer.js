@@ -6,7 +6,7 @@ const SET_NOTIFICATION_MESSAGE = 'set_notification_message';
 
 const initialState = {
   loadingStatus: 'loaded',
-  notificationMessage: 'No results found!'
+  notificationMessage: 'Keine Ergebnisse gefunden!'
 }
 
 // Helper function to return the current loading status
