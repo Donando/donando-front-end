@@ -6,6 +6,7 @@ import Footer from 'containers/footer'
 import Notification from 'components/notification'
 import AboutUs from 'components/aboutUs'
 import Contact from 'components/contact'
+import Impressum from 'components/impressum'
 
 export class Main extends Component {
   constructor(props) {
@@ -13,7 +14,8 @@ export class Main extends Component {
 
     this.state = {
       aboutUs: false,
-      contact: false
+      contact: false,
+      impressum: false
     }
 
     this.toggleModal = this.toggleModal.bind(this);
@@ -22,7 +24,8 @@ export class Main extends Component {
   toggleModal(value) {
     this.setState({
       aboutUs: false,
-      contact: false
+      contact: false,
+      impressum: false
     });
 
     this.setState({
@@ -53,6 +56,10 @@ export class Main extends Component {
 
           <div className={this.state.aboutUs ? 'modal' : 'modal__hide'}>
             <AboutUs handleClick={this.toggleModal} />
+          </div>
+
+          <div className={this.state.impressum ? 'modal' : 'modal__hide'}>
+            <Impressum handleClick={this.toggleModal} />
           </div>
 
           <div className={this.state.contact ? 'modal' : 'modal__hide'}>

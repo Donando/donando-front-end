@@ -11,6 +11,11 @@ export class Footer extends Component {
             </a>
           </li>
           <li>
+            <a onClick={() => this.props.handleClick('impressum')}>
+              Impressum
+            </a>
+          </li>
+          <li>
             <a onClick={() => this.props.handleClick('contact')}>
               Kontakt
             </a>
