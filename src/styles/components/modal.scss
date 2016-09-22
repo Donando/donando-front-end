@@ -1,0 +1,21 @@
+.modal {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  color: #fff;
+  opacity: 0.9;
+  background: #000;
+  text-align: center;
+  z-index: 999;
+
+  .modal__div {
+
+  }
+
+}
+
+.modal__hide {
+  display: none;
+}

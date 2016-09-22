@@ -7,7 +7,7 @@ import SearchResults from 'containers/search-results'
 export default () => {
   return (
     <Route path='/' component={MainLayout}>
-      { 
+      {
         <IndexRoute component={SearchResults}></IndexRoute>
       }
       <Route path='/search' component={SearchResults}>
